@@ -1,0 +1,72 @@
+
+<div class="grid-container">
+    <div class="L">
+        <app-member-login (Directlogin)="Directlogin($event)"></app-member-login>
+    </div>
+    <div class="B">
+        <app-booking-details></app-booking-details>
+    </div>
+    <div class="Form">
+
+        <form [formGroup]="memberForm" (ngSubmit)="ContinueBooking()">
+
+            <div  class="onerow">
+                <label>Renter's Name</label>
+                <input type="text" formControlName="First_Name" 
+                    placeholder="Enter your first name">
+                  
+                <input type="text" formControlName="Last_Name" 
+                    placeholder="Enter your last name">
+            </div>
+            <br>
+            <div>
+                <label for="Address1">Address</label>
+                <input type="text" formControlName="Address1" 
+                    placeholder="Enter your native address">
+            </div>
+            <br>
+           
+            <div>
+                <label for="EmailId">EmailId</label>
+                <input type="text" formControlName="EmailId" >
+
+            </div>
+            <hr><br>
+            <div class="onerow">
+                <label for="City">City</label>
+                <input type="text" formControlName="City">     
+         
+                <label for="Cell">Cell</label>
+                <input type="text" formControlName="Cell" >
+            </div><br><br>
+            <div class="onerow">
+                <label for="CreditcardType">CreditcardType</label>
+                <input type="text" formControlName="CreditcardType" >
+            
+                <label for="CreditCard_Number">CreditCard_Number</label>
+                <input type="number" formControlName="CreditCard_Number" >
+            </div><br><br>
+            <div class="onerow">
+                <label for="DrivingLiscen_Number">DrivingLiscen_Number</label>
+                <input type="number" formControlName="DrivingLiscen_Number" >
+ 
+            </div><br><br>
+            <div class="onerow">
+            
+                <label for="ValidThrouh">ValidThrouh</label>
+                <input type="text" formControlName="ValidThrouh" >
+            </div><br><br>
+            <div class="onerow">
+                <label for="Passport_Number">Passport_Number</label>
+                <input type="number" formControlName="Passport_Number" name="Passport_Number">
+            
+                <label for="Passport_Valid">Passport_Valid</label>
+                <input type="text" formControlName="Passport_Valid" >
+            </div><br><br>
+
+            <button type="submit">Continue Booking</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button [routerLink]="['rentalAddOn']">Cancel</button>
+        </form>
+
+    </div>
+</div>
