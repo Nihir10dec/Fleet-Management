@@ -1,3 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/dist/css/bootstrap.css";
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    background-color: ghostwhite;
+    
+  }
+
+app-footer {
+    // position: absolute;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // margin-top: 10rem;
+    // padding: 1rem;
+    // background-color: #efefef;
+    text-align: center;
+      
+}

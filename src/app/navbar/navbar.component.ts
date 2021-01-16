@@ -1,5 +1,6 @@
+import { StaffService } from './../staff.service';
 import { Component, OnInit } from '@angular/core';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,9 +8,16 @@ import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  user;
+
+  constructor(private _staffservice : StaffService) { }
 
   ngOnInit(): void {
+    this._staffservice.on().subscribe(data => this.user = data);
+  }
+
+  logout(){
+    this.user = undefined;
   }
 
 }
