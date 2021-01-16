@@ -1,45 +1,77 @@
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary" [containerInside]="true">
 
-    <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" href="#">India Drive</a></mdb-navbar-brand>
-  
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse">
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#">India Drive</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse">
     <links>
-  
+
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link btn btn-primary" mdbWavesEffect><i class="bi bi-house-door-fill" ></i> Home</a>
+          <a class="nav-link btn btn-primary" [routerLink]="['/home']" routerLinkActive="router-link-active"
+            mdbWavesEffect><i class="bi bi-house-door-fill"></i> Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link btn btn-primary " mdbWavesEffect>Modify / <i class="bi bi-x-circle"></i> Cancel Booking</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-primary " mdbWavesEffect> <i class="bi bi-box-arrow-in-right"></i> Membership Registration</a>
+          <a class="nav-link btn btn-primary " mdbWavesEffect> <i class="bi bi-box-arrow-in-right"></i> Membership
+            Registration</a>
         </li>
-        
+
         <li class="nav-item">
-            <a class="nav-link btn btn-primary " mdbWavesEffect><i class="fa fa-car" aria-hidden="true"></i>
-                About India Drive</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-primary" mdbWavesEffect> <i class="bi bi-telephone-inbound-fill"></i> Customer Care</a>
-          </li>
-  
-        
-  
+          <a class="nav-link btn btn-primary " mdbWavesEffect><i class="fa fa-car" aria-hidden="true"></i>
+            About India Drive</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary" mdbWavesEffect> <i class="bi bi-telephone-inbound-fill"></i> Customer
+            Care</a>
+        </li>
       </ul>
-      
+
       <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link btn btn-primary  " mdbWavesEffect> Login <i class="bi bi-box-arrow-in-left"></i> </a>
-              </li>
+        <li class="nav-item" *ngIf="user == undefined; else elseBlock">
+          <a class="nav-link btn btn-primary" [routerLink]="['/stafflogin']" routerLinkActive="router-link-active"
+            mdbWavesEffect> Login <i class="bi bi-box-arrow-in-left"></i> </a>
+        </li>
+      <ng-template #elseBlock >
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link btn btn-primary dropdown-toggle waves-light" mdbWavesEffect><i class="fa fa-user-circle" aria-hidden="true"></i>
+          Hi {{user.empName}}<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Handover</a>
+              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Return</a>
+              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Booking</a>
+              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Cancellation</a>
+              <div class="divider dropdown-divider"></div>
+              <a class="dropdown-item waves-light btn" mdbWavesEffect (click)="logout()">Logout</a>
+          </div>
+      </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link btn btn-primary" routerLinkActive="router-link-active"
+            mdbWavesEffect> Handover </a>
+        </li><li class="nav-item">
+          <a class="nav-link btn btn-primary" routerLinkActive="router-link-active"
+            mdbWavesEffect> Return </a>
+        </li><li class="nav-item">
+          <a class="nav-link btn btn-primary" routerLinkActive="router-link-active"
+            mdbWavesEffect> Booking </a>
+        </li><li class="nav-item">
+          <a class="nav-link btn btn-primary" routerLinkActive="router-link-active"
+            mdbWavesEffect> Cancellation </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary" routerLinkActive="router-link-active"
+            mdbWavesEffect> Logout </a>
+        </li> -->
+      </ng-template>
       </ul>
-      
+
     </links>
     <!-- Collapsible content -->
-</div>
-  </mdb-navbar>
-  <!--/.Navbar-->
+  </div>
+</mdb-navbar>
+<!--/.Navbar-->
