@@ -8,7 +8,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const routes: Routes = 
 [
   {path:'memberRegistrationForm',component:MembershipRegistrationComponent},
-  {path:'ConfirmBookingComponent',component:ConfirmBookingComponent},
+  {path:'ConfirmBookingComponent',component:ConfirmBookingComponent}, 
   {path:'home',component:ConfirmBookingComponent},
   {path:'vehiclSelection',component:ConfirmBookingComponent},
   {path:'rentalAddOn',component:ConfirmBookingComponent},
