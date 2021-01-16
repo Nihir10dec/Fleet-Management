@@ -1,8 +1,10 @@
+import { HomepageComponent } from './homepage/homepage.component';
+import { StaffloginComponent } from './stafflogin/stafflogin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ConfirmBookingComponent } from './confirm-booking/confirm-booking.component';
 import { MembershipRegistrationComponent } from './membership-registration/membership-registration.component';
-
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const routes: Routes = 
 [
   {path:'memberRegistrationForm',component:MembershipRegistrationComponent},
@@ -10,7 +12,11 @@ const routes: Routes =
   {path:'home',component:ConfirmBookingComponent},
   {path:'vehiclSelection',component:ConfirmBookingComponent},
   {path:'rentalAddOn',component:ConfirmBookingComponent},
-
+ 
+  { path: 'home', component: HomepageComponent },
+  {path :"stafflogin" , component: StaffloginComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PagenotfoundComponent },
 ];
 
 @NgModule({

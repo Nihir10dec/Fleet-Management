@@ -1,11 +1,9 @@
 <app-header></app-header>
-<app-navbar></app-navbar>
+<app-navbar ></app-navbar>
 
-<div class="jumbotron">
+<div class="container">
+    
+    <router-outlet (newEvent)="handleEvent()" ></router-outlet>
 
 </div>
-
-<input type="button" routerLink="memberRegistrationForm" value="MemberRegistrationForm">
-<router-outlet></router-outlet>
 <app-footer></app-footer>
-
