@@ -13,7 +13,6 @@ const routes: Routes =
   {path:'ConfirmBookingComponent',component:ConfirmBookingComponent}, 
   {path:'vehiclSelection',component:ConfirmBookingComponent},
   {path:'rentalAddOn',component:ConfirmBookingComponent},
- 
   { path: 'home', component: HomepageComponent },
   {path :"stafflogin" , component: StaffloginComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },

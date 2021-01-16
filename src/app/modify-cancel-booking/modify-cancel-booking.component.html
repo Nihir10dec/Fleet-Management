@@ -1,0 +1,30 @@
+<h1>Modify-cancel Booking</h1>
+<div *ngIf="modifyCancelBookingData==null"> 
+<div class="form-group">
+    <label for="exampleInputEmail1">Booking no.</label>
+    <input type="text" class="form-control" id="confirmation" placeholder="Enter Booking confirmation no" #txt>
+  </div>
+<button type="submit" class="btn btn-primary" id="show_button" (click)="selectedBookingId(txt)">Submit</button>
+</div>
+
+<div *ngIf="modifyCancelBookingData!=null">
+<h3>Details of the Booking Done</h3>
+<h2>Details of Customer</h2>
+<h4>First Name : {{modifyCancelBookingData.customerFirstName}}</h4>
+<h4>Last Name : {{modifyCancelBookingData.customerLastName}}</h4>
+<h4>MobileNo : {{modifyCancelBookingData.customerMobileNo}}</h4>
+<h4>usermailId : {{modifyCancelBookingData.usermailId}}</h4>
+<h4>customerDLNo : {{modifyCancelBookingData.customerDLNo}}</h4>
+<br>
+<h2>Car Booking Details</h2>
+<h4>Pickup date And Time: {{modifyCancelBookingData.bookingdateAndTime}}</h4>
+<h4>Drop date And Time:  {{modifyCancelBookingData.dropdateAndTime}}</h4>
+<h4>City :{{modifyCancelBookingData. City_cityId}}</h4>
+<h4>Hub Id :{{modifyCancelBookingData.Hub_hubId1}}</h4>
+<h4>Car Id :{{modifyCancelBookingData.carId}}</h4>
+<h4>Car Category :{{modifyCancelBookingData.CarCategories_categoryId}}</h4>
+
+<button class="btn btn-danger" id="cancelBooking" (click)="cancelBookingId(modifyCancelBookingData.bookingId)">Cancel</button>
+<button class="btn btn-warning" id="modifyBooking" (click)="modify()">Modify</button>
+
+</div>

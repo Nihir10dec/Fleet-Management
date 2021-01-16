@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+ import { LocationSelectionComponent } from './location-selection/location-selection.component';
+import { AddOnComponent } from './add-on/add-on.component';
+import { ModifyCancelBookingComponent } from './modify-cancel-booking/modify-cancel-booking.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -25,7 +28,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
@@ -36,6 +39,9 @@ import { MatCardModule,} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
+    LocationSelectionComponent,
+    AddOnComponent,
+    ModifyCancelBookingComponent,
     HeaderComponent,
     NavbarComponent,
     FooterComponent,
@@ -50,9 +56,12 @@ import { MatCardModule,} from '@angular/material/card';
     StaffloginComponent,
     PagenotfoundComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
