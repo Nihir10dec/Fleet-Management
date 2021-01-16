@@ -1,0 +1,28 @@
+<h1>Login form of customer</h1>
+
+<div *ngIf='message!=null'>{{message}}</div>
+
+
+  <form  (ngSubmit)="go()">
+    <div>
+      <input type="number" name="memberShipNumber" placeholder="Membership number" required
+      [(ngModel)]="id"  pattern="[0-9]">
+
+     <!-- <div *ngIf="memberShipNumber.invalid && memberShipNumber.touched">
+        <label *ngIf="memberShipNumber.errors?.required">Plz enter membership number</label>
+        <label *ngIf="memberShipNumber.errors?.pattern">Enter only numbers</label>
+      </div>-->
+
+    </div>
+   <br>
+   <div>
+    <input type="text" name="password" placeholder="Password" required [(ngModel)]="pass"> 
+    <!--<div *ngIf="password.invalid &&password.touched">
+      <label *ngIf="password.errors?.required">Please Enter password</label>
+    </div>-->
+   </div>
+    <br>
+    <input type="submit" value="Go">
+  </form>
+
+

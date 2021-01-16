@@ -1,0 +1,12 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.6fr 1.4fr;
+  gap: 10px 15px;
+  grid-template-areas:
+    "L Form"
+    "B Form";
+}
+.L { grid-area: L; }
+.B { grid-area: B; }
+.Form { grid-area: Form; }

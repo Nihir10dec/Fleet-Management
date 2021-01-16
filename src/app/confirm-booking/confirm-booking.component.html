@@ -1,0 +1,34 @@
+<!--<div  class="onerow">
+    {{Pickupdate}}
+    {{ReturnDate}}
+</div>
+
+<div  class="onerow">
+    {{PickupLocation}}
+    {{ReturnLocation}}
+</div>
+<div  class="onerow">
+    {{VehiclType}}
+    {{Rental ad-on}}
+</div>-->
+<br>
+<table *ngIf=customer>
+    
+    <tr>First Name:<td>{{customer.first_name}}</td></tr> 
+    <tr>Last name:<td>{{customer.last_name}}</td></tr> 
+    <tr> Adress :<td>{{customer.address}}</td></tr> 
+    <tr> Email Id:<td>{{customer.emailId}}</td></tr> 
+    <tr> City:<td>{{customer.city}}</td></tr> 
+    <tr> Cell no :<td>{{customer.cellNo}}</td></tr> 
+    <tr> Credit card type: <td>{{customer.creditcardType}}</td></tr> 
+    <tr>Credit card number : <td>{{customer.creditcard_Number}}</td></tr> 
+    <tr>Driving liscen number: <td>{{customer.drivingLiscen_Number}}</td></tr> 
+    <tr> Valid through : <td>{{customer.validThrough}}</td></tr> 
+    <tr>passport Number: <td>{{customer.passport_Number}}</td></tr> 
+    <tr> Passport Valid upto:<td>{{customer.passport_valid}}</td></tr> <br>
+
+  <button   (click)="confirm()" >Confirm</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button [routerLink]="['home']">Modify</button>
+  
+  </table>
+  

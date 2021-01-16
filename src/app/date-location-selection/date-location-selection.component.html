@@ -1,0 +1,86 @@
+
+<form class="text-center">
+  <div [formGroup]="bookingForm" >
+    <h2>Make A Reservation</h2>
+    <br />
+<mat-form-field appearance="fill">
+
+    <mat-label>Enter From and To dates</mat-label>
+    <mat-date-range-input [rangePicker]="picker" [min]="minDate" required>
+      <input matStartDate placeholder="Start date" required>
+      <input matEndDate placeholder="End date" required>
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+  <br />
+
+  <h4>Select Pickup Location</h4>
+    
+    <label for="">Airport: </label>
+      <mat-form-field class="example-full-width ml-2">
+        <mat-label>Airport Code</mat-label>
+        <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
+            {{option.cityName}} - {{option.airportcode}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    <br />
+
+    <label>State:</label>
+      <select class="form-select ml-2" name="fromState" formControlName="fromState" (change)="fillFromCity()">
+        <option selected>Select state</option>
+        <option *ngFor="let state of states" value= {{state.stateId}}>{{state.stateName}}</option>
+      </select>
+
+    &nbsp; &nbsp;
+
+    <label>City:</label>
+      <select class="form-select ml-2" name="fromCity" formControlName="fromCity" >
+        <option selected>Select City</option>
+        <option *ngFor="let city of fromCities" >{{city.cityName}}</option>
+      </select>
+
+    <br /><br />
+
+    <mat-checkbox class="example-margin" color="primary" (change)="handleReturnDiffLocation()">I want to return car in Differnt City</mat-checkbox>
+    <br /><br />
+
+    <div *ngIf="returnDiffLocation">
+      <h4>Select Drop Location</h4>
+    
+    <label for="">Airport: </label>
+      <mat-form-field class="example-full-width ml-2">
+        <mat-label>Airport Code</mat-label>
+        <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
+            {{option.cityName}} - {{option.airportcode}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    <br />
+      <label>State:</label>
+      <select class="form-select ml-2" name="toState" formControlName="toState" (change)="fillToCity()">
+        <option selected>Select state</option>
+        <option *ngFor="let state of states" value= {{state.stateId}}>{{state.stateName}}</option>
+      </select>
+
+    &nbsp; &nbsp;
+
+    <label>City:</label>
+      <select class="form-select ml-2" name="toCity" formControlName="toCity" >
+        <option selected>Select City</option>
+        <option *ngFor="let city of toCities" >{{city.cityName}}</option>
+      </select>
+
+    <br /><br />
+    </div>
+    
+    
+      <button class="btn btn-primary" type="submit">Continue Booking</button>
+  </div>
+</form>
+  
