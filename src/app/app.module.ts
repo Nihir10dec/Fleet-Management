@@ -9,10 +9,12 @@ import { ModifyCancelBookingComponent } from './modify-cancel-booking/modify-can
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
- import { CarCategoryComponent } from './car-category/car-category.component';
+import { CarCategoryComponent } from './car-category/car-category.component';
 import { HttpClientModule } from "@angular/common/http";
+
 import { MembershipRegistrationComponent } from './membership-registration/membership-registration.component';
 import { MemberLoginComponent } from './member-login/member-login.component';
+
 import { CustomerService } from './customer.service';
 import { CustomerAdapter } from './customer';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
@@ -65,9 +67,6 @@ import { MatCardModule,} from '@angular/material/card';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     MatGridListModule,
     MatDatepickerModule,
