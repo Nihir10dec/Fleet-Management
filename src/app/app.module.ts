@@ -6,11 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-<<<<<<< HEAD
 import { CarCategoryComponent } from './car-category/car-category.component';
-import { HttpClientModule } from "@angular/common/http";
-import { ReactiveFormsModule,FormsModule } from "@angular/forms";
-=======
 import { MembershipRegistrationComponent } from './membership-registration/membership-registration.component';
 import { MemberLoginComponent } from './member-login/member-login.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -34,7 +30,7 @@ import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { StaffloginComponent } from './stafflogin/stafflogin.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatCardModule,} from '@angular/material/card';
->>>>>>> d8a147d0c7e07fd56bf2ea29e4a58ea469bcd33b
+import { HandoverComponent } from './handover/handover.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +38,7 @@ import { MatCardModule,} from '@angular/material/card';
     HeaderComponent,
     NavbarComponent,
     FooterComponent,
-<<<<<<< HEAD
     CarCategoryComponent,
-=======
     MembershipRegistrationComponent,
     MemberLoginComponent,
     BookingDetailsComponent,
@@ -53,19 +47,13 @@ import { MatCardModule,} from '@angular/material/card';
     DateLocationSelectionComponent,
     CarouselComponent,
     StaffloginComponent,
-    PagenotfoundComponent
->>>>>>> d8a147d0c7e07fd56bf2ea29e4a58ea469bcd33b
+    PagenotfoundComponent,
+    HandoverComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     MDBBootstrapModule.forRoot(),
-<<<<<<< HEAD
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-=======
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -76,11 +64,9 @@ import { MatCardModule,} from '@angular/material/card';
     MatNativeDateModule,
     MatInputModule,
     MatAutocompleteModule,
-    FormsModule, ReactiveFormsModule,
     MatCheckboxModule,
     CarouselModule, WavesModule,
     MatCardModule,
->>>>>>> d8a147d0c7e07fd56bf2ea29e4a58ea469bcd33b
   ],
   providers: [CustomerService,CustomerAdapter],
   bootstrap: [AppComponent]

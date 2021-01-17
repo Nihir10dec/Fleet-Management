@@ -1,0 +1,36 @@
+
+<mat-card class="shadow border border-primary rounded">
+    <mat-card-content >
+<form [formGroup]="form1" (ngSubmit)="onSubmit(form1)">
+    <h2>Handover</h2>
+        <br>
+
+        <div class="form-group">
+        Booking ID:<input matInput id="bId" name="Book" formControlName="BookingId" placeholder="Enter Booking Id" (change)="Loadselectcar(BookingId)" required/>
+    </div>
+
+        <div>
+            <label>Select Car:</label>
+          <select matInput class="form-select ml-2" name="selectcars" formControlName="selectcars">
+            <option>Select car</option>
+            <option *ngFor="let s of carsobj" value= {{s}}>{{s}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+        Vehicle Number:<input matInput id="VehicleNo" placeholder="VehicleNo" formControlName="VehicleNo" required/>
+    </div>
+    <div class="form-group">
+        carstatus: <input id="carstatus" formControlName="carstatus" required/>
+        </div>
+    <div class="form-group">Fuel Status:
+        <input type="radio" value="1/4" formControlName="fuelstatus"/> 1/4
+        <input type="radio" value="1/2" formControlName="fuelstatus"/> 1/2
+        <input type="radio" value="3/4" formControlName="fuelstatus"/> 3/4
+        <input type="radio" value="full" formControlName="fuelstatus"/> full
+      </div>
+      
+    <input type="submit" value="submit" class="btn btn-primary"/>
+    </form>
+</mat-card-content>
+</mat-card>
+    

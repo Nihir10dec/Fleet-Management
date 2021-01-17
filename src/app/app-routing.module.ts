@@ -2,28 +2,29 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { StaffloginComponent } from './stafflogin/stafflogin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-<<<<<<< HEAD
 import { CarCategoryComponent } from './car-category/car-category.component';
-
-const routes: Routes = [
-  {path:'carcategory',component:CarCategoryComponent}
-=======
 import { ConfirmBookingComponent } from './confirm-booking/confirm-booking.component';
 import { MembershipRegistrationComponent } from './membership-registration/membership-registration.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { HandoverComponent } from './handover/handover.component';
+
+
+  
+
+
 const routes: Routes = 
 [
+  {path:'carcategory',component:CarCategoryComponent},
   {path:'memberRegistrationForm',component:MembershipRegistrationComponent},
   {path:'ConfirmBookingComponent',component:ConfirmBookingComponent},
   {path:'home',component:ConfirmBookingComponent},
   {path:'vehiclSelection',component:ConfirmBookingComponent},
   {path:'rentalAddOn',component:ConfirmBookingComponent},
- 
   { path: 'home', component: HomepageComponent },
   {path :"stafflogin" , component: StaffloginComponent},
+  {path:'handover',component:HandoverComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent },
->>>>>>> d8a147d0c7e07fd56bf2ea29e4a58ea469bcd33b
 ];
 
 @NgModule({
