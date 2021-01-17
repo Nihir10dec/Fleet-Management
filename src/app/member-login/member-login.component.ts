@@ -10,7 +10,7 @@ import { ICustomer } from '../icustomer';
 })
 export class MemberLoginComponent implements OnInit {
 
-  id: number=0;
+  id: number;
   pass:string='';
     message='';
     customer!:ICustomer;

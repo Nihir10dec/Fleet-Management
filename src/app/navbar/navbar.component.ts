@@ -8,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  user;
+  user = undefined;
 
   constructor(private _staffservice : StaffService) { }
 
   ngOnInit(): void {
+    // console.log("user value is" + this.user);
     this._staffservice.on().subscribe(data => this.user = data);
   }
 

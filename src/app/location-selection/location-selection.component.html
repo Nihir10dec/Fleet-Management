@@ -1,0 +1,25 @@
+<h1><u> Location Selection</u></h1>
+<br>
+<h4>Select a Pick-up / Return location</h4>
+<h5>Your location description <b><i><u>city</u></i></b> has <b><i><u>{{locationData.length}}</u></i></b>  matches. Please select one.</h5>
+<br>
+<form #locationSelection="ngForm" (ngSubmit)="selectedLocation(locationSelection)">
+  <div *ngFor="let item of locationData">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="locationSelected" [value]="item.hubId" ngModel>
+      <label class="form-check-label" for="{{item.hubId}}">
+        <h4>{{item.hubName}}-{{item.hubId}}</h4>
+        <div>Address :{{item.address }}</div>
+        <div>Contact No: {{item.contactNumber }}</div>
+        <br>
+      </label>
+      <br>
+    </div>   
+  </div>
+  <br>
+  <button type="submit" class="btn btn-outline-success  btn-lg">Continue Booking</button>
+  <span></span>
+  <button  type="reset" class="btn btn-outline-warning  btn-lg" [routerLink]="['/home']" >Cancel</button>
+</form>
+
+<div id="selectedloc"></div>

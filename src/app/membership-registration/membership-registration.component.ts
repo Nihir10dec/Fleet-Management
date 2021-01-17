@@ -12,7 +12,7 @@ import { ICustomer } from '../icustomer';
 })
 export class MembershipRegistrationComponent implements OnInit {
 
-  customer!: ICustomer;
+  customer=new Customer(0,"","","","","",0,"",0,0,"",0,"","");
   login !:Boolean;
   submitted=false;
   memberForm!: FormGroup;
@@ -49,7 +49,7 @@ export class MembershipRegistrationComponent implements OnInit {
       console.log(this.memberForm.value);
       return;
     }
-      this.customer=new Customer(0,"","","","","",0,"",0,0,"",0,"","");
+     
       this.customer.first_name=this.memberForm.value.First_Name;
       this.customer.last_name=this.memberForm.value.Last_Name;
       this.customer.address=this.memberForm.value.Address1;
@@ -67,10 +67,11 @@ export class MembershipRegistrationComponent implements OnInit {
       this.customer.passport_valid=this.memberForm.value.Passport_Valid;  
 
       this.dataserv.emit(this.customer);
-      if(this.login)
+      if(!this.login)
       {
-        this.dataserv.postcustomer(this.customer).subscribe(data=>
-          {this.router.navigate(['/ConfirmBookingComponent']);});
+        this.dataserv.postcustomer(this.customer).subscribe(data=>{this.dataserv.emit(data);
+         
+          this.router.navigate(['/ConfirmBookingComponent']);});
 
       }
       else{

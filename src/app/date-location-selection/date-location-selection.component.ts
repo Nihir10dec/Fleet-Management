@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ICity } from './../Icity';
 import { IState } from './../Istate';
 import {
@@ -5,7 +6,9 @@ import {
 } from './../statecity.service';
 import {
   Component,
-  OnInit
+  EventEmitter,
+  OnInit,
+  Output
 } from '@angular/core';
 import {
   FormGroup,
@@ -14,10 +17,6 @@ import {
 import {
   Observable
 } from 'rxjs';
-import {
-  map,
-  startWith
-} from 'rxjs/operators';
 
 
 @Component({
@@ -27,15 +26,14 @@ import {
 })
 export class DateLocationSelectionComponent implements OnInit {
   bookingForm = new FormGroup({
-
-    range : new FormGroup({
-      start: new FormControl(),
-      end: new FormControl()
-    }),
     fromState : new FormControl(),
     fromCity : new FormControl(),
     toState : new FormControl(),
     toCity :  new FormControl(),
+    range : new FormGroup({
+      start: new FormControl(),
+      end: new FormControl()
+    })
   })
   myControl = new FormControl();
   states : IState[];
@@ -45,32 +43,15 @@ export class DateLocationSelectionComponent implements OnInit {
   returnDiffLocation = false;
   filteredOptions: Observable < ICity[] > ;
   minDate: Date;
+  submitted = false;
+
+  constructor(private _statecityservice: StatecityService , private router : Router) {
+    this.minDate = new Date();
+  }
 
   async ngOnInit() {
     this.states = await this._statecityservice.getStates();
     this.cities = await this._statecityservice.getCities();
-
-    this.filteredOptions = this.bookingForm.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this._filter(name) : this.cities.slice()));
-
-    // console.log(this.states , this.cities);
-  }
-  
-  constructor(private _statecityservice: StatecityService) {
-    this.minDate = new Date();
-  }
-
-  displayFn(city: ICity): string {
-    return city && city.cityName ? city.cityName  : '';
-  }
-
-  private _filter(name: string): ICity[] {
-    const filterValue = name.toLowerCase();
-
-    return this.cities.filter(option => option.cityName.toLowerCase().indexOf(filterValue) === 0);
   }
 
   fillFromCity(){
@@ -81,5 +62,26 @@ export class DateLocationSelectionComponent implements OnInit {
   }
   handleReturnDiffLocation(){
     this.returnDiffLocation = !this.returnDiffLocation;
+  }
+
+  onSubmit(bookingForm : FormGroup){
+    this.submitted = true;
+    console.log("inside submit");
+    this.router.navigate(['/locationselection'] , {state: {data: bookingForm.value }} )
+  }
+  get fromState() {
+    return this.bookingForm.get('fromState'); // notice this
+  }
+  get fromCity() {
+    return this.bookingForm.get('fromCity'); // and this too
+  }
+  get toState() {
+    return this.bookingForm.get('toState');
+  }
+  get toCity() {
+    return this.bookingForm.get('toCity');
+  }
+  get range() {
+    return this.bookingForm.get('range')
   }
 }

@@ -17,12 +17,13 @@ export class CustomerService {
 
 emit(data:ICustomer)
 {
-
+this.data=data;
   this._subject.next(data);
 }
-
+data:any;
 on<T>():Observable<ICustomer>
 {
+  console.log(this.data);
   return this._subject.asObservable();
 }
 

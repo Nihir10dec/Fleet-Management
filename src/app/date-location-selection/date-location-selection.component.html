@@ -1,47 +1,53 @@
 
-<form class="text-center">
+<form class="text-center" (ngSubmit)="onSubmit(bookingForm)">
   <div [formGroup]="bookingForm" >
     <h2>Make A Reservation</h2>
     <br />
-<mat-form-field appearance="fill">
-
-    <mat-label>Enter From and To dates</mat-label>
-    <mat-date-range-input [rangePicker]="picker" [min]="minDate" required>
-      <input matStartDate placeholder="Start date" required>
-      <input matEndDate placeholder="End date" required>
-    </mat-date-range-input>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker" [min]="minDate" required >
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    
+      <!-- <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+      <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error> -->
+    </mat-form-field>
   <br />
 
   <h4>Select Pickup Location</h4>
-    
-    <label for="">Airport: </label>
-      <mat-form-field class="example-full-width ml-2">
-        <mat-label>Airport Code</mat-label>
-        <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl">
-        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-          <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
-            {{option.cityName}} - {{option.airportcode}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    <br />
+  
+  <label>State:</label>
+    <select class="form-select ml-2" name="fromState" formControlName="fromState" (change)="fillFromCity()" required>
+      <option disabled selected>Select state</option>
+      <option *ngFor="let state of states" value= {{state.stateId}}>{{state.stateName}}</option>
+    </select>
+    <div *ngIf="fromState.invalid &&(fromState.touched || submitted)">
+      <!-- {{fromState.errors}} -->
+    </div>
+    <br/>
+    <label for="">Airport Code: </label>
+    <select class="form-select ml-2" name="fromCity" formControlName="fromCity" >
+      <option disabled selected>Select Airport</option>
+      <option *ngFor="let city of fromCities" [value]="city.cityId" >{{city.airportcode}}</option>
+    </select>
+    <div *ngIf="fromCity.invalid &&(fromCity.touched || submitted)">
+      <!-- {{fromCity.errors}} -->
+    </div>  
 
-    <label>State:</label>
-      <select class="form-select ml-2" name="fromState" formControlName="fromState" (change)="fillFromCity()">
-        <option selected>Select state</option>
-        <option *ngFor="let state of states" value= {{state.stateId}}>{{state.stateName}}</option>
-      </select>
 
     &nbsp; &nbsp;
 
     <label>City:</label>
-      <select class="form-select ml-2" name="fromCity" formControlName="fromCity" >
-        <option selected>Select City</option>
-        <option *ngFor="let city of fromCities" >{{city.cityName}}</option>
+      <select class="form-select ml-2" name="fromCity" formControlName="fromCity" required>
+        <option disabled selected>Select City</option>
+        <option *ngFor="let city of fromCities" [value]="city.cityId">{{city.cityName}}</option>
       </select>
+      <div *ngIf="fromCity.invalid &&(fromCity.touched || submitted)">
+        <!-- {{fromCity.errors}} -->
+      </div>
 
     <br /><br />
 
@@ -51,36 +57,34 @@
     <div *ngIf="returnDiffLocation">
       <h4>Select Drop Location</h4>
     
-    <label for="">Airport: </label>
-      <mat-form-field class="example-full-width ml-2">
-        <mat-label>Airport Code</mat-label>
-        <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl">
-        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-          <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
-            {{option.cityName}} - {{option.airportcode}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    <br />
       <label>State:</label>
-      <select class="form-select ml-2" name="toState" formControlName="toState" (change)="fillToCity()">
-        <option selected>Select state</option>
+      <select class="form-select ml-2" name="toState" formControlName="toState" (change)="fillToCity()" [required]="returnDiffLocation">
+        <option disabled selected>Select state</option>
         <option *ngFor="let state of states" value= {{state.stateId}}>{{state.stateName}}</option>
       </select>
+      <div *ngIf="toState.invalid &&(toState.touched || submitted)">
+        <!-- {{toState.errors}} -->
+      </div>
+      <br/>
+    <label for="">Airport Code: </label>
+    <select class="form-select ml-2" name="toCity" formControlName="toCity" >
+      <option disabled selected>Select Airport</option>
+      <option *ngFor="let city of toCities" [value]="city.cityId"  >{{city.airportcode}}</option>
+    </select>
 
     &nbsp; &nbsp;
 
     <label>City:</label>
-      <select class="form-select ml-2" name="toCity" formControlName="toCity" >
-        <option selected>Select City</option>
-        <option *ngFor="let city of toCities" >{{city.cityName}}</option>
+      <select class="form-select ml-2" name="toCity" formControlName="toCity" [required]="returnDiffLocation" >
+        <option disabled selected>Select City</option>
+        <option *ngFor="let city of toCities" [value]="city.cityId" >{{city.cityName}}</option>
       </select>
 
     <br /><br />
     </div>
     
-    
-      <button class="btn btn-primary" type="submit">Continue Booking</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!bookingForm.valid">
+      Continue Booking</button>
   </div>
 </form>
   
