@@ -1,17 +1,22 @@
 <p>Your bookings</p>
 
-Pick up : <br>
-Pick up at:<br>
-Return :<br>
-Return at :<br>
+Pick up : {{homepage.start}}<br>
+Pick up at:{{locationdata.hubName}}<br>
+<div *ngIf="homepage.toCity!=null">
+Return :{{homepage.toCity}}<br>
+</div>
 
-<a [routerLink]="['home']">Modify</a><br>
+Return at :{{homepage.end}}<br>
+
+<a routerLink='home'>Modify</a><br>
 
 
-Vehicle selection : 
-<a [routerLink]="['vehiclSelection']">Modify</a><br>
+Vehicle selection : {{carcatgory.categoryName}}
+<a routerLink='carcategory'>Modify</a><br>
+<div *ngFor="let i of addonstring.ammenitiesName">
+    Rental Ad-On :{{i}}
+</div>
 
-Rental Ad-On :
-<a [routerLink]="['rentalAddOn']">Modify</a><br>
+<a routerLink='AddOn'>Modify</a><br>
 
 

@@ -23,4 +23,9 @@ export class ModifyCancelBookingServiceService {
   {
     return this.http.delete<any>(this.url+"Booking/"+code);
   }
+
+  postBooking(bookobj:ModifyCancelookingModel):Observable<any>
+  {
+    return this.http.post<any>(this.url+"Booking/",bookobj);
+  }
 }

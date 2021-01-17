@@ -1,27 +1,15 @@
 export class ModifyCancelookingModel {
-    bookingId: number;
-    bookingdateAndTime : String;
-    categoriId: Number;
-    customerFirstName: String;
-    customerLastName: String; 
-    customerMobileNo: number; 
-    usermailId: String; 
-    customerDLNo : String; 
-    dropdateAndTime: String;
-    Hub_hubId : number;
-    City_cityId : number;
-    State_stateId: number; 
-    CarCategories_categoryId: number;
-    carId : number;
-    Customer_customerId: number;
-    Hub_hubId1 : number;
-
-    Hub : any;
-    City : any;
-    State  : any;
-    CarCategories  : any;
-    Car  : any;
-    Customer  : any;
-    Billings  : any;
-    Hub1 : any;
+    constructor(
+    public bookingId: number,
+    public bookingdateAndTime : String,
+    public categoriId: Number,
+    public customerFirstName: String,
+    public customerLastName: String, 
+    public customerMobileNo: number,
+    public usermailId: String,
+    public customerDLNo : String,
+    public dropdateAndTime: String,
+    public Hub_hubId : number,
+    
+    public status:string){}
 }

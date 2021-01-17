@@ -16,10 +16,21 @@ export class MembershipRegistrationComponent implements OnInit {
   login !:Boolean;
   submitted=false;
   memberForm!: FormGroup;
+  comp1:any;
+  comp2:any;
+  comp3:any;
+  comp4:any;
+  comp5:any;
+  public alldata:any;
   constructor(public fb: FormBuilder, private dataserv: CustomerService,private router: Router) {  this.buildEmpForm()}
 
   ngOnInit(): void {
-   
+    this.comp1=history.state.data;
+    this.comp2=history.state.data1;
+    this.comp3=history.state.data2;
+    this.comp4=history.state.data3;
+    this.comp5=history.state.data4;
+    this.alldata=history.state;
   }
   buildEmpForm() {
     
@@ -71,12 +82,12 @@ export class MembershipRegistrationComponent implements OnInit {
       {
         this.dataserv.postcustomer(this.customer).subscribe(data=>{this.dataserv.emit(data);
          
-          this.router.navigate(['/ConfirmBookingComponent']);});
+          this.router.navigate(['/ConfirmBookingComponent'] , {state: {data: this.comp1,data1:this.comp2,data2:this.comp3,data3:this.comp4,data4:this.comp5}} );});
 
       }
       else{
 
-        this.router.navigate(['/ConfirmBookingComponent']);
+        this.router.navigate(['/ConfirmBookingComponent'] , {state: {data: this.comp1,data1:this.comp2,data2:this.comp3,data3:this.comp4}} );
       }
       
   }

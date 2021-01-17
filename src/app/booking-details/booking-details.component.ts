@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-booking-details',
@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingDetailsComponent implements OnInit {
 
+  @Input() public homepage
+  @Input() public locationdata
+  @Input() public carcatgory
+  @Input() public addonsum
+  @Input() public addonstring
   constructor() { }
 
   ngOnInit(): void {

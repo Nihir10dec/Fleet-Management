@@ -11,13 +11,17 @@ import { CarServService } from '../car-serv.service';
 export class CarCategoryComponent implements OnInit {
 
   carcatgry:CarCategories[];
-  public previouscomponentdata='';
+  previouscomponentdata:any;
+  loc:any;
+  carcatobj:any;
   constructor(private carserv1:CarServService,
     private router:Router) { 
     this.carcatgry=[];
   }
 
   ngOnInit(): void {
+    this.previouscomponentdata=history.state.data;
+    this.loc=history.state.data1;
     this.carserv1.getCarCategories().subscribe(data=>this.carcatgry=data);
     this.carserv1.on<any>().subscribe(data=>this.previouscomponentdata=data);
   }
@@ -25,6 +29,7 @@ export class CarCategoryComponent implements OnInit {
   {
     this.carserv1.emit<CarCategories>(c);
     console.log(c);
-    this.router.navigateByUrl('');
+    this.carcatobj=c;
+    this.router.navigate(['/AddOn'] , {state: {data: this.previouscomponentdata,data1:this.loc,data2:this.carcatobj}} );
   }
 }

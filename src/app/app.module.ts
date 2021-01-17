@@ -10,11 +10,6 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarCategoryComponent } from './car-category/car-category.component';
-<<<<<<< HEAD
-=======
-import { HttpClientModule } from "@angular/common/http";
-
->>>>>>> 26519b4e50191992ad588622d0dae452be8168da
 import { MembershipRegistrationComponent } from './membership-registration/membership-registration.component';
 import { MemberLoginComponent } from './member-login/member-login.component';
 
@@ -38,10 +33,8 @@ import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { StaffloginComponent } from './stafflogin/stafflogin.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatCardModule,} from '@angular/material/card';
-<<<<<<< HEAD
 import { HandoverComponent } from './handover/handover.component';
-=======
->>>>>>> 26519b4e50191992ad588622d0dae452be8168da
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -61,26 +54,14 @@ import { HandoverComponent } from './handover/handover.component';
     DateLocationSelectionComponent,
     CarouselComponent,
     StaffloginComponent,
-<<<<<<< HEAD
     PagenotfoundComponent,
     HandoverComponent
-=======
-    PagenotfoundComponent
->>>>>>> 26519b4e50191992ad588622d0dae452be8168da
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     MDBBootstrapModule.forRoot(),
-=======
-    FormsModule,
-    HttpClientModule,
-    HttpClientModule,
-    MDBBootstrapModule.forRoot(),
-    HttpClientModule,
->>>>>>> 26519b4e50191992ad588622d0dae452be8168da
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -93,6 +74,7 @@ import { HandoverComponent } from './handover/handover.component';
     MatCheckboxModule,
     CarouselModule, WavesModule,
     MatCardModule,
+    HttpClientModule
   ],
   providers: [CustomerService,CustomerAdapter],
   bootstrap: [AppComponent]
