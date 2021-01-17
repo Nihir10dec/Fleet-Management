@@ -1,3 +1,4 @@
+import { ICity } from './../Icity';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, FormArray, NgForm} from "@angular/forms";
 import { LocationSelection } from "./location-selection";
@@ -9,13 +10,13 @@ import { LocationSelectionServiceService } from "./location-selection-service.se
   styleUrls: ['./location-selection.component.css']
 })
 export class LocationSelectionComponent implements OnInit {
- 
+  fromCity : ICity;
   locationData : LocationSelection[];
   constructor(private _locationService  : LocationSelectionServiceService) {
-    
   }
 
   ngOnInit(){
+    this.fromCity = history.state.data.fromCity;
     this._locationService.getLocations().subscribe(data=> this.locationData=data);
   }
  
