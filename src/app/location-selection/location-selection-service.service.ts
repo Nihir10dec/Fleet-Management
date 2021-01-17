@@ -18,4 +18,8 @@ export class LocationSelectionServiceService {
   getLocationByCode(code:number): Observable<LocationSelection>{
     return this.http.get<LocationSelection>(this.url+"Hub/"+code)
   }
+
+  getLocationByCityId(id:number) : Observable<LocationSelection[]>{
+    return this.http.get<LocationSelection[]>(this.url+"Hub/city?city&cityId=" + id)
+  }
 }

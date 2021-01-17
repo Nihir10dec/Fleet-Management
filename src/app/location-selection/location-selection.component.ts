@@ -10,14 +10,14 @@ import { LocationSelectionServiceService } from "./location-selection-service.se
   styleUrls: ['./location-selection.component.css']
 })
 export class LocationSelectionComponent implements OnInit {
-  fromCity : ICity;
+  fromCity : number;
   locationData : LocationSelection[];
   constructor(private _locationService  : LocationSelectionServiceService) {
   }
 
   ngOnInit(){
     this.fromCity = history.state.data.fromCity;
-    this._locationService.getLocations().subscribe(data=> this.locationData=data);
+    this._locationService.getLocationByCityId(this.fromCity).subscribe(data=> this.locationData=data);
   }
  
   selectedLocation(locationSelection: NgForm){
