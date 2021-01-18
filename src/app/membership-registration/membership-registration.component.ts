@@ -41,7 +41,7 @@ export class MembershipRegistrationComponent implements OnInit {
       Address1: ['', Validators.required],
      
       EmailId: ['', [Validators.required,Validators.email]],
-      City:[''],
+      City:['',Validators.required],
        
         Cell:['',Validators.required],
         CreditcardType:['',Validators.required],
@@ -87,7 +87,7 @@ export class MembershipRegistrationComponent implements OnInit {
       }
       else{
 
-        this.router.navigate(['/ConfirmBookingComponent'] , {state: {data: this.comp1,data1:this.comp2,data2:this.comp3,data3:this.comp4}} );
+        this.router.navigate(['/ConfirmBookingComponent'] , {state: {data: this.comp1,data1:this.comp2,data2:this.comp3,data3:this.comp4,data4:this.comp5}} );
       }
       
   }

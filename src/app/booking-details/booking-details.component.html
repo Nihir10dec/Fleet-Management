@@ -8,15 +8,17 @@ Return :{{homepage.toCity}}<br>
 
 Return at :{{homepage.end}}<br>
 
-<a routerLink='home'>Modify</a><br>
+<a [routerLink]="['home']">Modify</a><br>
 
 
 Vehicle selection : {{carcatgory.categoryName}}
-<a routerLink='carcategory'>Modify</a><br>
-<div *ngFor="let i of addonstring.ammenitiesName">
+<a [routerLink]="['carcategory']">Modify</a><br>
+<!--<div *ngFor="let i of addonstring.ammenitiesName">
     Rental Ad-On :{{i}}
-</div>
+</div>-->
 
-<a routerLink='AddOn'>Modify</a><br>
+Add on : {{addonstring}}
+
+<a [routerLink]="['AddOn']">Modify</a><br>
 
 

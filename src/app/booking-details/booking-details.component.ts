@@ -7,11 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BookingDetailsComponent implements OnInit {
 
-  @Input() public homepage
-  @Input() public locationdata
-  @Input() public carcatgory
-  @Input() public addonsum
-  @Input() public addonstring
+  @Input() public homepage;
+  @Input() public locationdata;
+  @Input() public carcatgory;
+  @Input() public addonsum;
+  @Input() public addonstring;
   constructor() { }
 
   ngOnInit(): void {
