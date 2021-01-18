@@ -12,7 +12,7 @@ import { ICustomer } from '../icustomer';
 })
 export class MembershipRegistrationComponent implements OnInit {
 
-  customer=new Customer(0,"","","","","",0,"",0,0,"",0,"","");
+  customer=new Customer(0,"","","","","",0 , '', 0 ,"", ' ' , 0 , "","");
   login !:Boolean;
   submitted=false;
   memberForm!: FormGroup;
@@ -31,6 +31,7 @@ export class MembershipRegistrationComponent implements OnInit {
     this.comp4=history.state.data3;
     this.comp5=history.state.data4;
     this.alldata=history.state;
+    console.log(this.comp1 , this.comp2 , this.comp3 , this.comp4 , this.comp5);
   }
   buildEmpForm() {
     
@@ -80,14 +81,12 @@ export class MembershipRegistrationComponent implements OnInit {
       this.dataserv.emit(this.customer);
       if(!this.login)
       {
-        this.dataserv.postcustomer(this.customer).subscribe(data=>{this.dataserv.emit(data);
-         
+        this.dataserv.postcustomer(this.customer).subscribe(data=>{this.dataserv.emit(data);   
+                
           this.router.navigate(['/ConfirmBookingComponent'] , {state: {data: this.comp1,data1:this.comp2,data2:this.comp3,data3:this.comp4,data4:this.comp5}} );});
-
       }
       else{
-
-        this.router.navigate(['/ConfirmBookingComponent'] , {state: {data: this.comp1,data1:this.comp2,data2:this.comp3,data3:this.comp4,data4:this.comp5}} );
+        this.router.navigate(['/ConfirmBookingComponent'] , {state: {data: this.comp1,data1:this.comp2,data2:this.comp3,data3:this.comp4 ,data4:this.comp5}} );
       }
       
   }

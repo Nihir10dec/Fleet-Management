@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, FormArray, NgForm} from "@angular/
 import { LocationSelection } from "./location-selection";
 import { LocationSelectionServiceService } from "./location-selection-service.service";
 import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-location-selection',
@@ -14,7 +15,9 @@ export class LocationSelectionComponent implements OnInit {
   fromCity : number;
   dateloc:any;
   locationData : LocationSelection[];
-  constructor(private _locationService  : LocationSelectionServiceService,private router:Router) {
+  constructor(private _locationService  : LocationSelectionServiceService,private router:Router,
+    private _location : Location,
+    ) {
   }
 
   ngOnInit(){
@@ -26,7 +29,12 @@ export class LocationSelectionComponent implements OnInit {
   selectedLocation(locationSelection: NgForm){
     let loc:number = parseInt(locationSelection.value.locationSelected);
     console.log("Location Selected "+loc);
-    //document.getElementById("selectedloc").innerHTML= "Location Selected "+loc;
-    this.router.navigate(['/carcategory'] , {state: {data: this.dateloc,data1:loc}} );
+    let [locaobj] = this.locationData.filter(locs => locs.hubId == loc)
+    console.log(locaobj)
+    this.router.navigate(['/carcategory'] , {state: {data: this.dateloc,data1:locaobj}} );
   }
+
+  goBack(){
+    this._location.back();
+    }
 }

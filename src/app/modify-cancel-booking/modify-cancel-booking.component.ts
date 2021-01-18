@@ -11,7 +11,8 @@ import { ModifyCancelBookingServiceService } from "./modify-cancel-booking-servi
 export class ModifyCancelBookingComponent implements OnInit {
 
   inboundClick = false;
-  modifyCancelBookingData : any;//ModifyCancelookingModel;
+  isButtonVisible = true;
+  modifyCancelBookingData : ModifyCancelookingModel;
   constructor( private _modifyCancelBookingSevice : ModifyCancelBookingServiceService) { }
 
   ngOnInit(){
@@ -23,8 +24,9 @@ export class ModifyCancelBookingComponent implements OnInit {
   cancelBookingId(cancelbookId : any){
     alert("Booking will be cancelled");
     console.log("booking cancelled for Booking id :" + cancelbookId);
-    let id:number=parseInt(cancelbookId);
-    this._modifyCancelBookingSevice.cancelBooking(id).subscribe();
+    this.modifyCancelBookingData.status ="Cancelled";
+
+    this._modifyCancelBookingSevice.cancelBooking(this.modifyCancelBookingData).subscribe();
   }
 
   selectedBookingId(BookingId : any){

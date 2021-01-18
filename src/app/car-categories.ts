@@ -3,7 +3,7 @@ export class CarCategories {
         public categoryName:string,
         public imagePath:string,
         public dailyRates:number,
-        public weaklyRates:number,
+        public weeklyRates:number,
         public monthlyRates:number)
         {}
 }

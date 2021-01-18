@@ -42,7 +42,7 @@
           <a dropdownToggle mdbWavesEffect type="button" class="nav-link btn btn-primary dropdown-toggle waves-light" mdbWavesEffect><i class="fa fa-user-circle" aria-hidden="true"></i>
           Hi {{user.empName}}<span class="caret"></span></a>
           <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Handover</a>
+              <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/handover']" routerLinkActive="router-link-active"  >Handover</a>
               <a class="dropdown-item waves-light" mdbWavesEffect href="#">Return</a>
               <a class="dropdown-item waves-light" mdbWavesEffect href="#">Booking</a>
               <a class="dropdown-item waves-light" mdbWavesEffect href="#">Cancellation</a>

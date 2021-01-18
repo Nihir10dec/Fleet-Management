@@ -19,12 +19,16 @@
 <h2>Car Booking Details</h2>
 <h4>Pickup date And Time: {{modifyCancelBookingData.bookingdateAndTime}}</h4>
 <h4>Drop date And Time:  {{modifyCancelBookingData.dropdateAndTime}}</h4>
-<h4>City :{{modifyCancelBookingData. City_cityId}}</h4>
-<h4>Hub Id :{{modifyCancelBookingData.Hub_hubId1}}</h4>
-<h4>Car Id :{{modifyCancelBookingData.carId}}</h4>
-<h4>Car Category :{{modifyCancelBookingData.CarCategories_categoryId}}</h4>
+<!--<h4>City :{{modifyCancelBookingData.City_cityId}}</h4>-->
+<h4>Hub Id :{{modifyCancelBookingData.Hub_hubId}}</h4>
+<!--<h4>Car Id :{{modifyCancelBookingData.carId}}</h4>-->
+<!--<h4>Car Category :{{modifyCancelBookingData.CarCategories_categoryId}}</h4>-->
+<h4><b>Booking Status :{{modifyCancelBookingData.status}}</b></h4>
+<br>
 
-<button class="btn btn-danger" id="cancelBooking" (click)="cancelBookingId(modifyCancelBookingData.bookingId)">Cancel</button>
+<div *ngIf="this.isButtonVisible" (click)="this.isButtonVisible = false">
+<button class="btn btn-danger" id="cancelBooking" (click)="cancelBookingId(modifyCancelBookingData.bookingId)" onclick="hidden">Cancel</button> &nbsp;&nbsp;
 <button class="btn btn-warning" id="modifyBooking" (click)="modify()">Modify</button>
+</div>
 
 </div>

@@ -1,24 +1,25 @@
-<p>Your bookings</p>
+<h2 class="text-warning">Your bookings</h2>
 
-Pick up : {{homepage.start}}<br>
-Pick up at:{{locationdata.hubName}}<br>
-<div *ngIf="homepage.toCity!=null">
-Return :{{homepage.toCity}}<br>
+Pick up : {{homepage.range.start | date: 'dd/MM/yyyy'}}<br>
+Pick up at: {{locationdata.hubName}}<br>
+<div *ngIf="homepage.toCity==null; else elseblock">
+Return : {{locationdata.hubName}}<br>
 </div>
+<ng-template #elseblock>
+Return : {{homepage.toCity}}
+</ng-template>
 
-Return at :{{homepage.end}}<br>
+Return at : {{homepage.range.end | date: 'dd/MM/yyyy'}}<br>
 
-<a [routerLink]="['home']">Modify</a><br>
+<a class="btn btn-link" [routerLink]="['/home']"  >Modify</a><br>
 
 
 Vehicle selection : {{carcatgory.categoryName}}
-<a [routerLink]="['carcategory']">Modify</a><br>
-<!--<div *ngFor="let i of addonstring.ammenitiesName">
-    Rental Ad-On :{{i}}
-</div>-->
+<a class="btn btn-link " [routerLink]="['/carCategory']" >Modify</a><br>
 
-Add on : {{addonstring}}
+    Rental Ad-On :{{addonstring}}
 
-<a [routerLink]="['AddOn']">Modify</a><br>
+
+<a class="btn btn-link" [routerLink]="['/addOn']" >Modify</a><br>
 
 

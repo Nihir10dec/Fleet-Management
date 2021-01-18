@@ -65,9 +65,9 @@
                 <input type="text" formControlName="Passport_Valid">
                 <span *ngIf="memberForm.get('Passport_Valid').touched && memberForm.get('Passport_Valid').hasError('required')">Enter Passport Validation date </span>
             </div><br><br>
-
-            <button type="submit">Continue Booking :</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button [routerLink]="['rentalAddOn']">Cancel</button>
+            
+            <button class="btn btn-primary" type="submit">Continue Booking</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-primary" [routerLink]="['rentalAddOn']">Cancel</button>
         </form>
     </div>
 </div>

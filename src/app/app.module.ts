@@ -35,6 +35,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatCardModule,} from '@angular/material/card';
 import { HandoverComponent } from './handover/handover.component';
 import {  HttpClientModule } from '@angular/common/http';
+// import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,9 @@ import {  HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     CarouselModule, WavesModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    // MatSelectModule,
+
   ],
   providers: [CustomerService,CustomerAdapter],
   bootstrap: [AppComponent]

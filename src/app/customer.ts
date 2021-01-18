@@ -15,7 +15,7 @@ export class Customer implements ICustomer{
        public cellNo:number,
        public creditcardType:String,
        public creditcard_Number:Number,
-       public drivingLiscen_Number:Number,
+       public drivingLiscen_Number:string,
        public validThrough:String,
        public passport_Number:Number,
        public passport_valid:String,

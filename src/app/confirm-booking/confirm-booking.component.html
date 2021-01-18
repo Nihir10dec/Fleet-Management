@@ -1,16 +1,28 @@
-<!--<div  class="onerow">
-    {{Pickupdate}}
-    {{ReturnDate}}
+<div  class="onerow">
+    <h3 class="text-warning"> Trip Details </h3>
+    Pick Up Date: {{comp1.range.start | date:'dd/MM/yyyy'}}
+    <br/>
+    Return Date: {{comp1.range.end | date:'dd/MM/yyyy'}}
 </div>
 
 <div  class="onerow">
-    {{PickupLocation}}
-    {{ReturnLocation}}
+    <h3 class="text-warning"> Hub Details </h3>
+    <br>
+    Hub Name : {{comp2.hubName}} <br/>
+    <i class="fa fa-home" aria-hidden="true"></i> Hub Address: {{comp2.address}} <br/>
+    <i class="fa fa-mobile" aria-hidden="true"></i> Hub Contact : {{comp2.contactNumber}} <br/>
 </div>
+
 <div  class="onerow">
-    {{VehiclType}}
-    {{Rental ad-on}}
-</div>-->
+    <h3 class="text-warning"> <i class="fa fa-car" aria-hidden="true"></i>Car Details </h3>
+    <br>
+    Car Category : {{comp3.categoryName}} <br/>
+    Daily Rates : {{comp3.dailyRates | currency:"INR"}} <br/>
+    Weekly Rates : {{comp3.weeklyRates | currency:"INR"}} <br/>
+    Monthly Rates : {{comp3.monthlyRates | currency:"INR"}} <br/>
+</div>
+
+
 <br>
 <table *ngIf=customer>
     
@@ -28,7 +40,7 @@
     <tr> Passport Valid upto:<td>{{customer.passport_valid}}</td></tr> <br>
 
   <button   (click)="confirm()" >Confirm</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button [routerLink]="['home']">Modify</button>
+  <button [routerLink]="['/home']">Modify</button>
   
   </table>
   
