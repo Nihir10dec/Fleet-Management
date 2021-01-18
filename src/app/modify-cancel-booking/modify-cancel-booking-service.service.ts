@@ -19,9 +19,9 @@ export class ModifyCancelBookingServiceService {
     return this.http.get<ModifyCancelookingModel>(this.url+"Booking/"+code)
   }
 
-  cancelBooking(code:any):Observable<any>
+  cancelBooking(bookobj:ModifyCancelookingModel):Observable<any>
   {
-    return this.http.delete<any>(this.url+"Booking/"+code);
+    return this.http.put<any>(this.url+"Booking/"+bookobj.bookingId,bookobj);
   }
 
   postBooking(bookobj:ModifyCancelookingModel):Observable<any>
