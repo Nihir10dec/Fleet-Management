@@ -11,7 +11,7 @@ export interface ICustomer {
     cellNo:number;
     creditcardType:String;
     creditcard_Number:Number;
-    drivingLiscen_Number:Number;
+    drivingLiscen_Number:string;
    
     validThrough:String;
     passport_Number:Number;

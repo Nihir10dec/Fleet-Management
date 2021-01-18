@@ -7,11 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class HandoverServService {
 
-  webapiurl='http://localhost:59806/api/cars'
+  webapiurl='http://localhost:54492/api/';
+  
   constructor(private _http:HttpClient) { }
 
-  getcarsbyid(id:number):Observable<any[]>
+  getBookingById(id:number):Promise<any[]>
   {
-    return this._http.get<any[]>(this.webapiurl+"/"+id);
+    return this._http.get<any[]>(this.webapiurl+"booking/"+id).toPromise();
+  }
+
+  getcarsbycategory(id:number):Observable<any[]>
+  {
+    return this._http.get<any[]>(this.webapiurl+"car?category&category_id="+id);
   }
 }

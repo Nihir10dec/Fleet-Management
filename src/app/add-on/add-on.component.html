@@ -9,7 +9,7 @@
             <td>{{item.ammenitiesId}}</td>
             <td><input class="form-check-input" type="checkbox" name="{{item.ammenitiesRate}}"  value="{{item.ammenitiesRate}}"  ngModel ></td>
             <td>{{item.ammenitiesName}}</td>
-            <td>$&nbsp;{{item.ammenitiesRate}}.00/day</td>
+            <td>{{item.ammenitiesRate | currency:"INR"}} / Day</td>
             </tr>    
             <tr *ngIf="!AmmenitiesData || AmmenitiesData.length==0">
                 <td colspan="5">

@@ -14,7 +14,7 @@
             <th>Car class</th>
             <th>Car type</th>
             <th>Daily</th>
-            <th>Weakly</th>
+            <th>Weekly</th>
             <th>Monthly</th>
             <th></th>
           </tr>
@@ -22,15 +22,15 @@
     <tbody *ngFor='let c of carcatgry'>
         <tr id="{{c.categorayId}}">
             <td><img src="{{c.imagePath}}" width="60" height="40" ></td>
-            <td>{{c.categoryName}}</td>
-            <td>₹{{c.dailyRates}}</td>
-            <td>₹{{c.weaklyRates}}</td>
-            <td>₹{{c.monthlyRates}}</td>
-            <td><button (click)="CarSelected(c)" class="btn btn-outline-primary">select</button></td>
+            <td>{{c.categoryName }}</td>
+            <td>{{c.dailyRates | currency:'INR'}}</td>
+            <td>{{c.weeklyRates | currency:'INR'}}</td>
+            <td>{{c.monthlyRates | currency:'INR'}}</td>
+            <td><button (click)="CarSelected(c)" class="btn btn-outline-primary">Select</button></td>
             </tr>
     </tbody>
   </table>
 </div>
   <div align='center'>
-<button name="cancle" onclick="" class="btn btn-outline-danger" font='black'>Cancel</button>
+<button name="cancel" class="btn btn-outline-danger" (click)="goBack()" font='black'>Cancel</button>
 </div>

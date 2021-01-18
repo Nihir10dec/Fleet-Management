@@ -11,13 +11,13 @@
 
         <div>
             <label>Select Car:</label>
-          <select matInput class="form-select ml-2" name="selectcars" formControlName="selectcars">
+          <select matInput class="form-select ml-2" name="selectcars" #selectcars formControlName="selectcars" (change)="onCarSelected(selectcars.value)">
             <option>Select car</option>
-            <option *ngFor="let s of carsobj" value= {{s}}>{{s}}</option>
+            <option *ngFor="let s of carsarray" value= {{s.carId}}>{{s.carName}}</option>
           </select>
         </div>
         <div class="form-group">
-        Vehicle Number:<input matInput id="VehicleNo" placeholder="VehicleNo" formControlName="VehicleNo" required/>
+        Vehicle Number:<input matInput id="VehicleNo" placeholder="VehicleNo" formControlName="VehicleNo" [value]="vehicleNumber" />
     </div>
     <div class="form-group">
         Car Status: <input id="carstatus" placeholder="Car Status" formControlName="carstatus" required/>
@@ -29,7 +29,7 @@
         <input type="radio" value="full" formControlName="fuelstatus"/> full
       </div>
       
-    <input type="submit" value="submit" class="btn btn-primary"/>
+    <input type="submit" value="Handover" class="btn btn-primary"/>
     </form>
 </mat-card-content>
 </mat-card>
