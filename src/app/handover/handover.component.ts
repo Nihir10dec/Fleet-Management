@@ -11,9 +11,11 @@ export class HandoverComponent implements OnInit {
 
   form1: FormGroup;
   handobj: any;
-  carsobj:any[];
+  booking;
+  carCategoryId : number;
+  carsarray:any[];
   fuelstatuss: Array<string> = ['1/4', '1/2', '3/4', 'full']
-
+  vehicleNumber: number;
   constructor(private fb: FormBuilder,
     private serv:HandoverServService) {
     this.form1 = fb.group({
@@ -23,7 +25,7 @@ export class HandoverComponent implements OnInit {
       carstatus: ['', Validators.required],
       fuelstatus: ['', Validators.required]
     });
-    this.carsobj=[];
+    this.carsarray=[];
   }
 
   get BookingId() {
@@ -47,11 +49,20 @@ export class HandoverComponent implements OnInit {
   onSubmit(frm: FormGroup) {
     console.log(frm.value);
   }
-  Loadselectcar(f:any)
+  async Loadselectcar(f:any)
   {
     console.log(f.value);
     let i=parseInt(f.value);
-    this.serv.getcarsbyid(i).subscribe(data=>this.carsobj=data);
+    this.booking = await this.serv.getBookingById(i);
+    console.log(this.booking);
+    // this.carCategoryId = this.booking.CarCategories_categoryId;
+    this.serv.getcarsbycategory(this.booking.CarCategories_categoryId).subscribe(data => this.carsarray = data)
+  }
+
+  onCarSelected(selectedCarID){
+    let [car] = this.carsarray.filter(car => car.carId == selectedCarID);
+    // console.log(car);
+    this.vehicleNumber = car.carNoPlate;
   }
 
 }

@@ -31,7 +31,7 @@ export class AddOnComponent implements OnInit {
     this.comp2=history.state.data1;
     this.comp3=history.state.data2;
     this._AddOnService.getAmmenities().subscribe(data=> this.AmmenitiesData=data);
-    console.log("Hello");
+    console.log(this.comp1 , this.comp2 , this.comp3);
   }
   
   selectedAmmenities(ammenitiesSelection: NgForm){
@@ -40,17 +40,17 @@ export class AddOnComponent implements OnInit {
     if (a['10']== true) {
 
     sum= sum +10; 
-    this.returnAmenitiesData += this.AmmenitiesData[0].ammenitiesName;
+    this.returnAmenitiesData += this.AmmenitiesData[0].ammenitiesName + " , ";
    }
 
    if (a['30']== true) {
 
     sum= sum +30; 
-    this.returnAmenitiesData += this.AmmenitiesData[1].ammenitiesName;
+    this.returnAmenitiesData += this.AmmenitiesData[1].ammenitiesName + " , ";
    }
 
     if (a['2']== true) {
-      sum= sum +2 ; 
+      // sum= sum +2 ; 
       var no = 1;
       if(this.selectedOption){
         no = parseInt(this.selectedOption);

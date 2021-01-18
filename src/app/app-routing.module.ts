@@ -18,10 +18,10 @@ import { ReturnComponent } from './return/return.component';
 
 const routes: Routes = 
 [
-  {path:'DateLocationSelection',component:DateLocationSelectionComponent},
-  {path:'LocationSelection',component:LocationSelectionComponent},
+  // {path:'DateLocationSelection',component:DateLocationSelectionComponent},
+  {path:'locationselection',component:LocationSelectionComponent},
   {path:'carcategory',component:CarCategoryComponent},
-  {path:'AddOn',component:AddOnComponent},
+  {path:'addOn',component:AddOnComponent},
   {path:'memberRegistrationForm',component:MembershipRegistrationComponent},
   {path:'ConfirmBookingComponent',component:ConfirmBookingComponent},
   { path: 'home', component: HomepageComponent },

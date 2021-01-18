@@ -9,7 +9,7 @@
     </div>
    
     <div class="Form">
-        <h3>Login or Register Yourself here !!</h3><br>
+        <h3 class="text-warning">Login or Register Yourself here !!</h3><br>
         <form [formGroup]="memberForm" (ngSubmit)="ContinueBooking()">
 
             <div  class="onerow">
@@ -60,8 +60,8 @@
                 <input type="text" formControlName="Passport_Valid" >
             </div><br><br>
             
-            <button type="submit">Continue Booking :</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button [routerLink]="['rentalAddOn']">Cancel</button>
+            <button class="btn btn-primary" type="submit">Continue Booking</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-primary" [routerLink]="['rentalAddOn']">Cancel</button>
         </form>
     </div>
 </div>
