@@ -35,6 +35,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatCardModule,} from '@angular/material/card';
 import { HandoverComponent } from './handover/handover.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { ReturnComponent } from './return/return.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {  HttpClientModule } from '@angular/common/http';
     CarouselComponent,
     StaffloginComponent,
     PagenotfoundComponent,
-    HandoverComponent
+    HandoverComponent,
+    ReturnComponent
   ],
 
   imports: [

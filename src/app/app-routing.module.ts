@@ -10,6 +10,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HandoverComponent } from './handover/handover.component';
 import { DateLocationSelectionComponent } from './date-location-selection/date-location-selection.component';
 import { LocationSelectionComponent } from './location-selection/location-selection.component';
+import { ReturnComponent } from './return/return.component';
 
 
   
@@ -26,6 +27,7 @@ const routes: Routes =
   { path: 'home', component: HomepageComponent },
   {path :"stafflogin" , component: StaffloginComponent},
   {path:'handover',component:HandoverComponent},
+  {path:'return',component:ReturnComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent },
 ];
