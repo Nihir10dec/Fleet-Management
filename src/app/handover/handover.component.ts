@@ -1,6 +1,9 @@
+import { BillingServService } from './../billing-serv.service';
+import { CustomerService } from './../customer.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HandoverServService } from '../handover-serv.service';
+import { Billing } from '../billing';
 
 @Component({
   selector: 'app-handover',
@@ -11,13 +14,16 @@ export class HandoverComponent implements OnInit {
 
   form1: FormGroup;
   handobj: any;
+  bookingId : number;
   booking;
+  customerobj;
+  billingobj : Billing = new Billing(0,0,0, 0,0,'','','','','','',0,'','');
   carCategoryId : number;
   carsarray:any[];
   fuelstatuss: Array<string> = ['1/4', '1/2', '3/4', 'full']
   vehicleNumber: number;
-  constructor(private fb: FormBuilder,
-    private serv:HandoverServService) {
+  constructor(private fb: FormBuilder, private _customerserv : CustomerService,
+    private _billingserv :BillingServService ,private serv:HandoverServService) {
     this.form1 = fb.group({
       BookingId: ['', Validators.required],
       selectcars: ['', Validators.required],
@@ -46,14 +52,31 @@ export class HandoverComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  onSubmit(frm: FormGroup) {
-    console.log(frm.value);
+  async onSubmit(frm: FormGroup) {
+    this.booking.status = "Active";
+    await this.serv.updateBooking(this.bookingId , this.booking);
+    this.customerobj = await this._customerserv.getCustomerByCode(this.booking.Customer_customerId);
+    console.log("booking" ,this.booking);
+
+    this.billingobj.CarCategories_categoryId = this.booking.CarCategories_categoryId;
+    this.billingobj.Car_carId = this.booking.Car_carId;
+    this.billingobj.Booking_bookingId = this.bookingId;
+    this.billingobj.Customer_customerId = this.booking.Customer_customerId;
+    this.billingobj.billingName = this.customerobj.first_name + " " + this.customerobj.last_name;
+    this.billingobj.fuelStatus = this.booking.fuelstatus;
+    this.billingobj.startDate = new Date().toDateString();
+    this.billingobj.userMailid = this.customerobj.emailId;
+    this.billingobj.customerMobNo = this.customerobj.cellNo;
+    this.billingobj.Hub_hubid = this.booking.Hub_hubid;
+    console.log("billing " , this.billingobj)
+    this._billingserv.postBilling(this.billingobj).subscribe(data => console.log(data))
   }
   async Loadselectcar(f:any)
   {
     console.log(f.value);
-    let i=parseInt(f.value);
-    this.booking = await this.serv.getBookingById(i);
+    let id=parseInt(f.value);
+    this.bookingId = id;
+    this.booking = await this.serv.getBookingById(id);
     console.log(this.booking);
     // this.carCategoryId = this.booking.CarCategories_categoryId;
     this.serv.getcarsbycategory(this.booking.CarCategories_categoryId).subscribe(data => this.carsarray = data)

@@ -8,7 +8,7 @@ import { Billing } from './billing';
 })
 export class BillingServService {
 
-  webapiurl='';
+  webapiurl='http://localhost:54492/api';
   constructor(private _http:HttpClient) { }
 
   getBillings():Observable<Billing[]>
@@ -18,22 +18,22 @@ export class BillingServService {
 
   getBillingById(id:number):Observable<Billing>
   {
-    return this._http.get<Billing>(this.webapiurl+'/'+id);
+    return this._http.get<Billing>(this.webapiurl+'/billing'+id);
   }
 
   postBilling(billingobj:Billing):Observable<any>
   {
-    return this._http.post<any>(this.webapiurl+'/',billingobj);
+    return this._http.post<any>(this.webapiurl+'/billing',billingobj);
   }
 
   deleteBilling(id:number):Observable<any>
   {
-    return this._http.delete<any>(this.webapiurl+'/'+id);
+    return this._http.delete<any>(this.webapiurl+'/billing'+id);
   }
 
   putBillingById(billingobj:Billing):Observable<Billing>
   {
-    return this._http.put<any>(this.webapiurl+'/'+billingobj.billingId,billingobj);
+    return this._http.put<any>(this.webapiurl+'/billing'+billingobj.billingId,billingobj);
   }
 
   public __subject=new BehaviorSubject<any>('');
