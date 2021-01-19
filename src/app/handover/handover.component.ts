@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BillingServService } from './../billing-serv.service';
 import { CustomerService } from './../customer.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,13 +18,16 @@ export class HandoverComponent implements OnInit {
   bookingId : number;
   booking;
   customerobj;
-  billingobj : Billing = new Billing(0,0,0, 0,0,'','','','','','',0,'','');
+  carId;
+  billingobj : Billing = new Billing(0,0,0, 0,0,'','','','','','',0,'','' , 0);
   carCategoryId : number;
   carsarray:any[];
   fuelstatuss: Array<string> = ['1/4', '1/2', '3/4', 'full']
   vehicleNumber: number;
   constructor(private fb: FormBuilder, private _customerserv : CustomerService,
-    private _billingserv :BillingServService ,private serv:HandoverServService) {
+    private _billingserv :BillingServService ,private serv:HandoverServService,
+    private router : Router
+    ) {
     this.form1 = fb.group({
       BookingId: ['', Validators.required],
       selectcars: ['', Validators.required],
@@ -59,17 +63,21 @@ export class HandoverComponent implements OnInit {
     console.log("booking" ,this.booking);
 
     this.billingobj.CarCategories_categoryId = this.booking.CarCategories_categoryId;
-    this.billingobj.Car_carId = this.booking.Car_carId;
+    this.billingobj.Car_carId = this.carId;
     this.billingobj.Booking_bookingId = this.bookingId;
     this.billingobj.Customer_customerId = this.booking.Customer_customerId;
     this.billingobj.billingName = this.customerobj.first_name + " " + this.customerobj.last_name;
-    this.billingobj.fuelStatus = this.booking.fuelstatus;
-    this.billingobj.startDate = new Date().toDateString();
+    this.billingobj.fuelStatus = this.form1.get('fuelstatus').value;
+    this.billingobj.startDate = new Date().toString();
+    this.billingobj.endDate = "";
     this.billingobj.userMailid = this.customerobj.emailId;
     this.billingobj.customerMobNo = this.customerobj.cellNo;
-    this.billingobj.Hub_hubid = this.booking.Hub_hubid;
+    this.billingobj.Hub_hubid = this.booking.Hub_hubId;
+    this.billingobj.amount = this.booking.Amount;
     console.log("billing " , this.billingobj)
-    this._billingserv.postBilling(this.billingobj).subscribe(data => console.log(data))
+    this._billingserv.postBilling(this.billingobj).subscribe(data => console.log(data));
+    alert("Car Handed Over");
+    this.router.navigate(["/home"]);
   }
   async Loadselectcar(f:any)
   {
@@ -83,6 +91,7 @@ export class HandoverComponent implements OnInit {
   }
 
   onCarSelected(selectedCarID){
+    this.carId = selectedCarID;
     let [car] = this.carsarray.filter(car => car.carId == selectedCarID);
     // console.log(car);
     this.vehicleNumber = car.carNoPlate;

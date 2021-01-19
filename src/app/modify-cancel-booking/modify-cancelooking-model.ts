@@ -13,5 +13,6 @@ export class ModifyCancelookingModel {
     public State_stateID : number,
     public CarCategories_categoryId : number,
     public Customer_customerId : number,
-    public status:string){}
+    public status:string,
+    public Amount : number){}
 }

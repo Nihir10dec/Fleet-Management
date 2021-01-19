@@ -23,7 +23,7 @@ export class HandoverServService {
 
   updateBooking(id: number , bookingobj):Promise<any[]>
   {
-    return this._http.put<any[]>(this.webapiurl + "/booking/" + id , bookingobj).toPromise();
+    return this._http.put<any[]>(this.webapiurl + "booking/" + id , bookingobj).toPromise();
   }
 
 }

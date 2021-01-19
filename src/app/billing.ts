@@ -12,5 +12,6 @@ export class Billing {
         public customerMobNo:string,
         public Hub_hubid:number,
         public firstName:string,
-        public lastName:string){}
+        public lastName:string,
+        public amount: number){}
 }
