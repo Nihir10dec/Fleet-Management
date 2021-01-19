@@ -17,9 +17,7 @@ import { CareerComponent } from './career/career.component';
 import { AppGuard } from './app.guard';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-
-
-  
+import { InvoiceGenerationComponent } from './invoice-generation/invoice-generation.component';
 
 
 const routes: Routes = 
@@ -33,6 +31,7 @@ const routes: Routes =
   { path: 'home', component: HomepageComponent },
   {path :"stafflogin" , component: StaffloginComponent},
   {path:'handover',component:HandoverComponent},
+  {path:'invoice', component:InvoiceGenerationComponent},
   {path:'return',component:ReturnComponent},
   {path:"career",component:CareerComponent},
   {path:"affiliatedhotel",component:AffiliatedHotelsComponent},
