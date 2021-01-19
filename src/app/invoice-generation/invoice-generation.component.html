@@ -1,0 +1,28 @@
+<h1>Invoice</h1>
+<div *ngIf="invoiceData==null"> 
+<div class="form-group">
+    <label for="exampleInputEmail1">Billing no.</label>
+    <input type="text" class="form-control" id="confirmation" placeholder="Enter Billing confirmation no" #txt>
+  </div>
+<button type="submit" class="btn btn-primary" id="show_button" (click)="selectedBillingId(txt)">Submit</button>
+</div>
+
+<div *ngIf="invoiceData!=null">
+<h3>Details of the Booking Done</h3>
+<h2>Details of Customer</h2>
+<h4>First Name : {{invoiceData.firstName}}</h4>
+<h4>Last Name : {{invoiceData.lastName}}</h4>
+<h4>MobileNo : {{invoiceData.customerMobNo}}</h4>
+<h4>usermailId : {{invoiceData.userMailid}}</h4>
+<h4>customerDLNo : {{invoiceData.customerMobNo}}</h4>
+<br>
+<h2>Car Booking Details</h2>
+<h4>Booking id: {{invoiceData.Booking_bookingId}}</h4>
+<h4>Fuel Status : {{invoiceData.fuelStatus}}</h4>
+<h4>Car Category: {{invoiceData.CarCategories_categoryId}}</h4>
+<h4>Hub Id : {{invoiceData.Hub_hubid}}</h4>
+<h4><b>Start Date :{{invoiceData.startDate}}</b></h4>
+<h4><b>End Date :{{invoiceData.endDate}}</b></h4>
+
+<br>
+
