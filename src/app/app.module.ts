@@ -35,8 +35,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatCardModule,} from '@angular/material/card';
 import { HandoverComponent } from './handover/handover.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { ReturnComponent } from './return/return.component';
+import { DatePipe } from '@angular/common';
 import { CareerComponent } from './career/career.component';
-// import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CareerComponent } from './career/career.component';
     StaffloginComponent,
     PagenotfoundComponent,
     HandoverComponent,
-    CareerComponent
+    ReturnComponent,
+    CareerComponent,
   ],
 
   imports: [
@@ -81,7 +83,7 @@ import { CareerComponent } from './career/career.component';
     // MatSelectModule,
 
   ],
-  providers: [CustomerService,CustomerAdapter],
+  providers: [CustomerService,CustomerAdapter,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

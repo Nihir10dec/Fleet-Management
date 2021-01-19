@@ -13,5 +13,5 @@ export class Billing {
         public Hub_hubid:number,
         public firstName:string,
         public lastName:string,
-        public amount: number){}
+        public Amount:number){}
 }

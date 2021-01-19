@@ -12,8 +12,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HandoverComponent } from './handover/handover.component';
 import { DateLocationSelectionComponent } from './date-location-selection/date-location-selection.component';
 import { LocationSelectionComponent } from './location-selection/location-selection.component';
-import { AppGuard } from './app.guard';
+import { ReturnComponent } from './return/return.component';
 import { CareerComponent } from './career/career.component';
+import { AppGuard } from './app.guard';
 
 
   
@@ -29,6 +30,8 @@ const routes: Routes =
   {path:'ConfirmBookingComponent',component:ConfirmBookingComponent,canActivate : [AppGuard]},
   { path: 'home', component: HomepageComponent },
   {path :"stafflogin" , component: StaffloginComponent},
+  {path:'handover',component:HandoverComponent},
+  {path:'return',component:ReturnComponent},
   {path:"career",component:CareerComponent},
   {path:"affiliatedhotel",component:AffiliatedHotelsComponent},
   {path:"customercare",component:CustomerCareComponent},
