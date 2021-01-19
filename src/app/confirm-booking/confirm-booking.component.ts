@@ -37,7 +37,7 @@ export class ConfirmBookingComponent implements OnInit {
   confirm()
   {
     // alert(console.log("Confirm booking"));
-    this.bookingobj=new ModifyCancelookingModel(0,'','','',0,'','','',0, 0 , 0 , 0 , 0, '');
+    this.bookingobj=new ModifyCancelookingModel(0,'','','',0,'','','',0, 0 , 0 , 0 , 0, '' , 0);
     this.bookingobj.bookingdateAndTime=this.comp1.range.start;
     this.bookingobj.CarCategories_categoryId= this.comp3.categoryId;
     this.bookingobj.customerFirstName=this.customer.first_name;
@@ -51,7 +51,10 @@ export class ConfirmBookingComponent implements OnInit {
     this.bookingobj.State_stateID = this.comp1.fromState;
     this.bookingobj.Customer_customerId = this.customer.customerId;
     this.bookingobj.status='Booked';
+    this.bookingobj.Amount = this.comp4;
     // console.log(this.bookingobj);
     this.bookserv.postBooking(this.bookingobj).subscribe(data=>console.log(data));
+    alert("Booking has be done Successfully");
+    this.router.navigate(["/home"]);
   }
 }

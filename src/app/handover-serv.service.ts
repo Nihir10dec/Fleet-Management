@@ -20,4 +20,10 @@ export class HandoverServService {
   {
     return this._http.get<any[]>(this.webapiurl+"car?category&category_id="+id);
   }
+
+  updateBooking(id: number , bookingobj):Promise<any[]>
+  {
+    return this._http.put<any[]>(this.webapiurl + "booking/" + id , bookingobj).toPromise();
+  }
+
 }

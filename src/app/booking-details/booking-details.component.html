@@ -1,25 +1,30 @@
 <h2 class="text-warning">Your bookings</h2>
 
-Pick up : {{homepage.range.start | date: 'dd/MM/yyyy'}}<br>
-Pick up at: {{locationdata.hubName}}<br>
+<ul class="list-group">
+
+    <li class="list-group-item">Pick up : {{homepage.range.start | date: 'dd/MM/yyyy'}}</li>
+        <li class="list-group-item">Pick up at: {{locationdata.hubName}}</li>
 <div *ngIf="homepage.toCity==null; else elseblock">
-Return : {{locationdata.hubName}}<br>
+    <li class="list-group-item">Return : {{locationdata.hubName}}</li>
 </div>
 <ng-template #elseblock>
-Return : {{homepage.toCity}}
+    <li class="list-group-item">Return : {{homepage.toCity}}</li>
 </ng-template>
 
-Return at : {{homepage.range.end | date: 'dd/MM/yyyy'}}<br>
+<li class="list-group-item">Return at : {{homepage.range.end | date: 'dd/MM/yyyy'}}</li>
 
-<a class="btn btn-link" [routerLink]="['/home']"  >Modify</a><br>
+<a class="btn btn-primary" [routerLink]="['/home']"  >Modify</a><br>
+</ul>
+<ul class="list-group">
+
+<li class="list-group-item">Vehicle selection : {{carcatgory.categoryName}}</li>
+<a class="btn btn-primary " [routerLink]="['/carCategory']" >Modify</a><br>
+</ul>
+<ul class="list-group">
+<li class="list-group-item">Rental Ad-On :{{addonstring}}</li>
 
 
-Vehicle selection : {{carcatgory.categoryName}}
-<a class="btn btn-link " [routerLink]="['/carCategory']" >Modify</a><br>
-
-    Rental Ad-On :{{addonstring}}
+<a class="btn btn-primary" [routerLink]="['/addOn']" >Modify</a><br>
 
 
-<a class="btn btn-link" [routerLink]="['/addOn']" >Modify</a><br>
-
-
+</ul>
