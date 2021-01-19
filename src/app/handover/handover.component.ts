@@ -73,7 +73,7 @@ export class HandoverComponent implements OnInit {
     this.billingobj.userMailid = this.customerobj.emailId;
     this.billingobj.customerMobNo = this.customerobj.cellNo;
     this.billingobj.Hub_hubid = this.booking.Hub_hubId;
-    this.billingobj.amount = this.booking.Amount;
+    this.billingobj.Amount = this.booking.Amount;
     console.log("billing " , this.billingobj)
     this._billingserv.postBilling(this.billingobj).subscribe(data => console.log(data));
     alert("Car Handed Over");
