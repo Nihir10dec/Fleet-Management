@@ -1,3 +1,5 @@
+import { CustomerCareComponent } from './customer-care/customer-care.component';
+import { AffiliatedHotelsComponent } from './affiliated-hotels/affiliated-hotels.component';
 import { AddOnComponent } from './add-on/add-on.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { StaffloginComponent } from './stafflogin/stafflogin.component';
@@ -10,8 +12,11 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HandoverComponent } from './handover/handover.component';
 import { DateLocationSelectionComponent } from './date-location-selection/date-location-selection.component';
 import { LocationSelectionComponent } from './location-selection/location-selection.component';
-import { AppGuard } from './app.guard';
+import { ReturnComponent } from './return/return.component';
 import { CareerComponent } from './career/career.component';
+import { AppGuard } from './app.guard';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
   
@@ -20,17 +25,24 @@ import { CareerComponent } from './career/career.component';
 const routes: Routes = 
 [
   {path:'DateLocationSelection',component:DateLocationSelectionComponent},
-  {path:'LocationSelection',component:LocationSelectionComponent,canActivate : [AppGuard]},
+  {path:'locationselection',component:LocationSelectionComponent,canActivate : [AppGuard]},
   {path:'carcategory',component:CarCategoryComponent,canActivate : [AppGuard]},
-  {path:'addon',component:AddOnComponent,canActivate : [AppGuard]},
+  {path:'addOn',component:AddOnComponent,canActivate : [AppGuard]},
   {path:'memberRegistrationForm',component:MembershipRegistrationComponent,canActivate : [AppGuard]},
   {path:'ConfirmBookingComponent',component:ConfirmBookingComponent,canActivate : [AppGuard]},
   { path: 'home', component: HomepageComponent },
   {path :"stafflogin" , component: StaffloginComponent},
+  {path:'handover',component:HandoverComponent},
+  {path:'return',component:ReturnComponent},
   {path:"career",component:CareerComponent},
+  {path:"affiliatedhotel",component:AffiliatedHotelsComponent},
+  {path:"customercare",component:CustomerCareComponent},
   {path:'handover',component:HandoverComponent,canActivate : [AppGuard]},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path : 'aboutus', component:AboutUsComponent},
+  {path: 'contactus', component:ContactUsComponent},
   { path: '**', component: PagenotfoundComponent },
+  
 ];
 
 @NgModule({

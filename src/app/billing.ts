@@ -10,7 +10,8 @@ export class Billing {
         public endDate:string,
         public userMailid:string,
         public customerMobNo:string,
-        private Hub_hubid:number,
-        private firstName:string,
-        private lastName:string){}
+        public Hub_hubid:number,
+        public firstName:string,
+        public lastName:string,
+        public Amount:number){}
 }
