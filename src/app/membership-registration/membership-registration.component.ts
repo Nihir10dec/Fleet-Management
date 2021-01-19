@@ -42,7 +42,7 @@ export class MembershipRegistrationComponent implements OnInit {
       Address1: ['', Validators.required],
      
       EmailId: ['', [Validators.required,Validators.email]],
-      City:[''],
+      City:['',Validators.required],
        
         Cell:['',Validators.required],
         CreditcardType:['',Validators.required],

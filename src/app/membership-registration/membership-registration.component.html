@@ -1,63 +1,69 @@
-
-
 <div class="grid-container">
     <div class="L">
         <app-member-login (Directlogin)="Directlogin($event)"></app-member-login>
     </div>
     <div class="B">
-        <app-booking-details [homepage]="this.comp1" [locationdata]="this.comp2" [carcatgory]="this.comp3" [addonsum]="this.comp4" [addonstring]="this.comp5" ></app-booking-details>
+        <app-booking-details [homepage]="this.comp1" [locationdata]="this.comp2" [carcatgory]="this.comp3"
+            [addonsum]="this.comp4" [addonstring]="this.comp5"></app-booking-details>
     </div>
-   
-    <div class="Form">
-        <h3 class="text-warning">Login or Register Yourself here !!</h3><br>
-        <form [formGroup]="memberForm" (ngSubmit)="ContinueBooking()">
 
-            <div  class="onerow">
+    <div class="Form">
+        <h3>Login or Register Yourself here !!</h3><br>
+        <form [formGroup]="memberForm" (ngSubmit)="ContinueBooking()" novalidate>
+
+            <div class="onerow">
                 <label>Renter's Name : </label>
-                <input type="text" formControlName="First_Name" 
+
+                <input type="text" name="First_Name" formControlName="First_Name"
                     placeholder="Enter your first name">&nbsp;&nbsp;&nbsp;
-                  
-                <input type="text" formControlName="Last_Name" 
-                    placeholder="Enter your last name">
+                    <span *ngIf="memberForm.get('First_Name').touched && memberForm.get('First_Name').hasError('required')">Enter Last name</span>
+
+                <input type="text" formControlName="Last_Name" placeholder="Enter your last name">
+                <span *ngIf="memberForm.get('Last_Name').touched && memberForm.get('Last_Name').hasError('required')">Enter First name</span>
             </div>
             <br>
             <div class="onerow">
                 <label for="Address1">Address :</label>
-                <input type="text" formControlName="Address1" 
-                    placeholder="Enter your native address">&nbsp;&nbsp;&nbsp;
-            
+                <input type="text" formControlName="Address1" placeholder="Enter your native address">&nbsp;&nbsp;&nbsp;
+                <span *ngIf="memberForm.get('Address1').touched && memberForm.get('Address1').hasError('required')">Enter Address</span>
                 <label for="EmailId">EmailId :</label>
-                <input type="text" formControlName="EmailId" >
+                <input type="text" formControlName="EmailId">
+                <span *ngIf="memberForm.get('EmailId').touched && memberForm.get('EmailId').hasError('required')">Enter email Address</span>
+                <span *ngIf="memberForm.get('EmailId').touched && memberForm.get('EmailId').hasError('email')">Enter Valid email Address</span>
 
             </div>
             <hr>
             <div class="onerow">
                 <label for="City">City : </label>
-                <input type="text" formControlName="City">  &nbsp;&nbsp;&nbsp;   
-         
-                <label for="Cell">  Cell : </label>
-                <input type="text" formControlName="Cell" >
+                <input type="text" formControlName="City"> &nbsp;&nbsp;&nbsp;
+                <span *ngIf="memberForm.get('EmailId').touched && memberForm.get('City').hasError('City')">Enter city</span>
+                <label for="Cell"> Cell : </label>
+                <input type="text" formControlName="Cell">
+                <span *ngIf="memberForm.get('Cell').touched && memberForm.get('Cell').hasError('required')">Enter Cell no. </span>
             </div><br><br>
             <div class="onerow">
-                <label for="CreditcardType">CreditcardType : </label>
-                <input type="text" formControlName="CreditcardType" >&nbsp;&nbsp;&nbsp;
-            
-                <label for="CreditCard_Number">CreditCard_Number : </label>
-                <input type="number" formControlName="CreditCard_Number" >
+                <label for="CreditcardType">Creditcard Type : </label>
+                <input type="text" formControlName="CreditcardType">&nbsp;&nbsp;&nbsp;
+                <span *ngIf="memberForm.get('CreditcardType').touched && memberForm.get('CreditcardType').hasError('required')">Enter CreditcardType</span>
+                <label for="CreditCard_Number">CreditCard Number : </label>
+                <input type="number" formControlName="CreditCard_Number">
+                <span *ngIf="memberForm.get('CreditCard_Number').touched && memberForm.get('CreditCard_Number').hasError('required')">Enter CreditCard Number</span>
             </div><br><br>
             <div class="onerow">
-                <label for="DrivingLiscen_Number">DrivingLiscen_Number : </label>
-                <input type="number" formControlName="DrivingLiscen_Number" >&nbsp;&nbsp;&nbsp;
-            
-                <label for="ValidThrouh"> ValidThrouh : </label>
-                <input type="text" formControlName="ValidThrouh" >
+                <label for="DrivingLiscen_Number">DrivingLiscen Number : </label>
+                <input type="number" formControlName="DrivingLiscen_Number">&nbsp;&nbsp;&nbsp;
+                <span *ngIf="memberForm.get('DrivingLiscen_Number').touched && memberForm.get('DrivingLiscen_Number').hasError('required')">Enter DrivingLiscen_Number Number</span>
+                <label for="ValidThrouh"> Valid Through : </label>
+                <input type="text" formControlName="ValidThrouh">
+                <span *ngIf="memberForm.get('ValidThrouh').touched && memberForm.get('ValidThrouh').hasError('required')">Enter valid through date</span>
             </div><br><br>
             <div class="onerow">
-                <label for="Passport_Number">Passport_Number : </label>
+                <label for="Passport_Number">Passport Number : </label>
                 <input type="number" formControlName="Passport_Number" name="Passport_Number">&nbsp;&nbsp;&nbsp;
-            
-                <label for="Passport_Valid">Passport_Valid : </label>
-                <input type="text" formControlName="Passport_Valid" >
+                <span *ngIf="memberForm.get('Passport_Number').touched && memberForm.get('Passport_Number').hasError('required')">Enter passport number </span>
+                <label for="Passport_Valid">Passport Valid : </label>
+                <input type="text" formControlName="Passport_Valid">
+                <span *ngIf="memberForm.get('Passport_Valid').touched && memberForm.get('Passport_Valid').hasError('required')">Enter Passport Validation date </span>
             </div><br><br>
             
             <button class="btn btn-primary" type="submit">Continue Booking</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

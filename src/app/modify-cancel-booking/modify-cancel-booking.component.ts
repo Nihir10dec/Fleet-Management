@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModifyCancelookingModel } from "./modify-cancelooking-model";
 import { ModifyCancelBookingServiceService } from "./modify-cancel-booking-service.service";
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-modify-cancel-booking',
   templateUrl: './modify-cancel-booking.component.html',
@@ -13,12 +13,12 @@ export class ModifyCancelBookingComponent implements OnInit {
   inboundClick = false;
   isButtonVisible = true;
   modifyCancelBookingData : ModifyCancelookingModel;
-  constructor( private _modifyCancelBookingSevice : ModifyCancelBookingServiceService) { }
+  constructor( private _modifyCancelBookingSevice : ModifyCancelBookingServiceService,private router:Router) { }
 
   ngOnInit(){
   }
   modify(){
-    alert("to modifying page");
+    this.router.navigate(['/DateLocationSelection']);
   }
 
   cancelBookingId(cancelbookId : any){

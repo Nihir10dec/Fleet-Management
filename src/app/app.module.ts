@@ -37,6 +37,7 @@ import { HandoverComponent } from './handover/handover.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { ReturnComponent } from './return/return.component';
 import { DatePipe } from '@angular/common';
+import { CareerComponent } from './career/career.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { DatePipe } from '@angular/common';
     StaffloginComponent,
     PagenotfoundComponent,
     HandoverComponent,
-    ReturnComponent
+    ReturnComponent,
+    CareerComponent,
   ],
 
   imports: [
