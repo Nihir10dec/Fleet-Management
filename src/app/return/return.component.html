@@ -6,21 +6,13 @@
         <br>
 
         <div class="form-group">
-        Booking ID:<input id="bId" name="Book" formControlName="BookingId" placeholder="Enter Booking Id" (change)="Loadselectcar(BookingId)" required/>
+        Booking ID:<input id="bId" name="Book" formControlName="BookingId" placeholder="Enter Booking Id" (change)="LoadVehicleNo(BookingId)" required/>
     </div>
 
         <div class="form-group">
-        Vehicle Number:<input id="VehicleNo" placeholder="VehicleNo" formControlName="VehicleNo" required/>
+        Vehicle Number:<input id="VehicleNo" placeholder="VehicleNo" formControlName="VehicleNo" [value]="vehicleNumber" required/>
     </div>
-    <div class="form-group">
-        Car Status: <input id="carstatus" placeholder="Car Status" formControlName="carstatus" required/>
-        </div>
-    <div class="form-group">Fuel Status:
-        <input type="radio" value="1/4" formControlName="fuelstatus"/> 1/4
-        <input type="radio" value="1/2" formControlName="fuelstatus"/> 1/2
-        <input type="radio" value="3/4" formControlName="fuelstatus"/> 3/4
-        <input type="radio" value="full" formControlName="fuelstatus"/> full
-      </div>
+    
       
     <input type="submit" value="submit" class="btn btn-primary"/>
     </form>

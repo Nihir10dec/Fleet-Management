@@ -6,18 +6,18 @@
         <br>
 
         <div class="form-group">
-        Booking ID:<input matInput id="bId" name="Book" formControlName="BookingId" placeholder="Enter Booking Id" (change)="Loadselectcar(BookingId)" required/>
+        Booking ID:<input id="bId" name="Book" formControlName="BookingId" placeholder="Enter Booking Id" (change)="Loadselectcar(BookingId)" required/>
     </div>
 
         <div>
             <label>Select Car:</label>
-          <select matInput class="form-select ml-2" name="selectcars" #selectcars formControlName="selectcars" (change)="onCarSelected(selectcars.value)">
+          <select class="form-select ml-2" name="selectcars" #selectcars formControlName="selectcars" (change)="onCarSelected(selectcars.value)">
             <option>Select car</option>
             <option *ngFor="let s of carsarray" value= {{s.carId}}>{{s.carName}}</option>
           </select>
         </div>
         <div class="form-group">
-        Vehicle Number:<input matInput id="VehicleNo" placeholder="VehicleNo" formControlName="VehicleNo" [value]="vehicleNumber" />
+        Vehicle Number:<input id="VehicleNo" placeholder="VehicleNo" formControlName="VehicleNo" [value]="vehicleNumber" />
     </div>
     <div class="form-group">
         Car Status: <input id="carstatus" placeholder="Car Status" formControlName="carstatus" required/>

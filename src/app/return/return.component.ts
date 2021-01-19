@@ -1,5 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Billing } from '../billing';
 import { ReturnServService } from '../return-serv.service';
 
 @Component({
@@ -11,16 +14,20 @@ export class ReturnComponent implements OnInit {
 
   form1: FormGroup;
   returnobj: any;
-  carsobj:any[];
-  fuelstatuss: Array<string> = ['1/4', '1/2', '3/4', 'full']
+  booking;
+  carsobj:any;
+  vehicleNumber: any;
+  carId:number;
+  billingId:number;
+  billingObj:Billing;
 
   constructor(private fb: FormBuilder,
-    private serv:ReturnServService) {
+    private serv:ReturnServService,
+    private router:Router,
+    private datepipe:DatePipe) {
     this.form1 = fb.group({
       BookingId: ['', Validators.required],
-      VehicleNo: ['', Validators.required],
-      carstatus: ['', Validators.required],
-      fuelstatus: ['', Validators.required]
+      VehicleNo: ['', Validators.required]
     });
     this.carsobj=[];
   }
@@ -31,22 +38,33 @@ export class ReturnComponent implements OnInit {
   get VehicleNo() {
     return this.form1.get('VehicleNo');
   }
-  get carstatus() {
-    return this.form1.get('carstatus');
-  }
-  get fuelstatus() {
-    return this.form1.get('fuelstatus');
-  }
   ngOnInit(): void {
   }
   onSubmit(frm: FormGroup) {
     console.log(frm.value);
+    this.carsobj.availability="1";
+    let car=this.serv.putCarAvailability(this.carsobj.carId,this.carsobj);
+    this.booking.Status="completed";
+    this.serv.putBookingStatus(this.booking.bookingId,this.booking);
+    let date=new Date();
+    this.billingObj.endDate=this.datepipe.transform(date,'dd/MM/YYYY');
+    this.serv.putBillingDate(this.billingObj.billingId,this.billingObj);
+    console.log(car);
+    this.router.navigate(['/'] , {state: {data: this.billingObj,data1: this.carsobj}} );
   }
-  Loadselectcar(f:any)
+  async LoadVehicleNo(f:any)
   {
     console.log(f.value);
     let i=parseInt(f.value);
-    //this.serv.getcarsbyid(i).subscribe(data=>this.carsobj=data);
+    this.booking = await this.serv.getBookingById(i);
+    
+    this.billingObj=await this.serv.getBillingByBookkingId('',i);
+    console.log(this.booking);
+    console.log(this.billingObj);
+    this.carsobj=await this.serv.getVehicleNo(this.billingObj.Car_carId);
+    this.vehicleNumber=this.carsobj.carNoPlate;
+    console.log(this.carsobj);
+    console.log(this.vehicleNumber);
   }
 
 }

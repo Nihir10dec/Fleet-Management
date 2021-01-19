@@ -35,11 +35,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatCardModule,} from '@angular/material/card';
 import { HandoverComponent } from './handover/handover.component';
 import {  HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 import { ReturnComponent } from './return/return.component';
-=======
-// import {MatSelectModule} from '@angular/material/select';
->>>>>>> c6f9650a2aabf01e547d6ed30b90e6e23b6c1069
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -84,7 +81,7 @@ import { ReturnComponent } from './return/return.component';
     // MatSelectModule,
 
   ],
-  providers: [CustomerService,CustomerAdapter],
+  providers: [CustomerService,CustomerAdapter,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
