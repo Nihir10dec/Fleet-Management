@@ -11,6 +11,8 @@ import { HandoverComponent } from './handover/handover.component';
 import { DateLocationSelectionComponent } from './date-location-selection/date-location-selection.component';
 import { LocationSelectionComponent } from './location-selection/location-selection.component';
 import { AppGuard } from './app.guard';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
   
@@ -28,7 +30,10 @@ const routes: Routes =
   {path :"stafflogin" , component: StaffloginComponent},
   {path:'handover',component:HandoverComponent,canActivate : [AppGuard]},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path : 'aboutus', component:AboutUsComponent},
+  {path: 'contactus', component:ContactUsComponent},
   { path: '**', component: PagenotfoundComponent },
+  
 ];
 
 @NgModule({
