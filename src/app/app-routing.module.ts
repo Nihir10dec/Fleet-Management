@@ -10,6 +10,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HandoverComponent } from './handover/handover.component';
 import { DateLocationSelectionComponent } from './date-location-selection/date-location-selection.component';
 import { LocationSelectionComponent } from './location-selection/location-selection.component';
+import { AppGuard } from './app.guard';
+import { CareerComponent } from './career/career.component';
 
 
   
@@ -17,15 +19,16 @@ import { LocationSelectionComponent } from './location-selection/location-select
 
 const routes: Routes = 
 [
-  // {path:'DateLocationSelection',component:DateLocationSelectionComponent},
-  {path:'locationselection',component:LocationSelectionComponent},
-  {path:'carcategory',component:CarCategoryComponent},
-  {path:'addOn',component:AddOnComponent},
-  {path:'memberRegistrationForm',component:MembershipRegistrationComponent},
-  {path:'ConfirmBookingComponent',component:ConfirmBookingComponent},
+  {path:'DateLocationSelection',component:DateLocationSelectionComponent},
+  {path:'LocationSelection',component:LocationSelectionComponent,canActivate : [AppGuard]},
+  {path:'carcategory',component:CarCategoryComponent,canActivate : [AppGuard]},
+  {path:'addon',component:AddOnComponent,canActivate : [AppGuard]},
+  {path:'memberRegistrationForm',component:MembershipRegistrationComponent,canActivate : [AppGuard]},
+  {path:'ConfirmBookingComponent',component:ConfirmBookingComponent,canActivate : [AppGuard]},
   { path: 'home', component: HomepageComponent },
   {path :"stafflogin" , component: StaffloginComponent},
-  {path:'handover',component:HandoverComponent},
+  {path:"career",component:CareerComponent},
+  {path:'handover',component:HandoverComponent,canActivate : [AppGuard]},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent },
 ];

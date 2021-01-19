@@ -35,6 +35,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatCardModule,} from '@angular/material/card';
 import { HandoverComponent } from './handover/handover.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { CareerComponent } from './career/career.component';
 // import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
@@ -56,7 +57,8 @@ import {  HttpClientModule } from '@angular/common/http';
     CarouselComponent,
     StaffloginComponent,
     PagenotfoundComponent,
-    HandoverComponent
+    HandoverComponent,
+    CareerComponent
   ],
 
   imports: [
