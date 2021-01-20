@@ -1,34 +1,47 @@
-<h1>Modify-cancel Booking</h1>
+<div class="container text-center">
+
+<h1 class="text-warning" >Modify-cancel Booking</h1>
+<br>
 <div *ngIf="modifyCancelBookingData==null"> 
 <div class="form-group">
-    <label for="exampleInputEmail1">Booking no.</label>
+    <label for="exampleInputEmail1">Please enter your Booking Confirmation no. sent on your Mail</label>
     <input type="text" class="form-control" id="confirmation" placeholder="Enter Booking confirmation no" #txt>
   </div>
 <button type="submit" class="btn btn-primary" id="show_button" (click)="selectedBookingId(txt)">Submit</button>
 </div>
 
-<div *ngIf="modifyCancelBookingData!=null">
-<h3>Details of the Booking Done</h3>
-<h2>Details of Customer</h2>
-<h4>First Name : {{modifyCancelBookingData.customerFirstName}}</h4>
-<h4>Last Name : {{modifyCancelBookingData.customerLastName}}</h4>
-<h4>MobileNo : {{modifyCancelBookingData.customerMobileNo}}</h4>
-<h4>usermailId : {{modifyCancelBookingData.usermailId}}</h4>
-<h4>customerDLNo : {{modifyCancelBookingData.customerDLNo}}</h4>
+<div *ngIf="modifyCancelBookingData!=null" >
+  <h3><u>Details of the Booking Done</u></h3>
+  <br>
+  <div class="row">
+    <div class="col">
+<h2><strong><em>Details of Customer</em></strong></h2>
+<ul class="list-group">
+  <li class="list-group-item">First Name : {{modifyCancelBookingData.customerFirstName}}</li>
+  <li class="list-group-item">Last Name : {{modifyCancelBookingData.customerLastName}}</li>
+  <li class="list-group-item">Mobile Number : {{modifyCancelBookingData.customerMobileNo}}</li>
+  <li class="list-group-item">Email Id : {{modifyCancelBookingData.usermailId}}</li>
+  <li class="list-group-item">Driving License Number : {{modifyCancelBookingData.customerDLNo}}</li>
+</ul>
 <br>
-<h2>Car Booking Details</h2>
-<h4>Pickup date And Time: {{modifyCancelBookingData.bookingdateAndTime}}</h4>
-<h4>Drop date And Time:  {{modifyCancelBookingData.dropdateAndTime}}</h4>
-<!--<h4>City :{{modifyCancelBookingData.City_cityId}}</h4>-->
-<h4>Hub Id :{{modifyCancelBookingData.Hub_hubId}}</h4>
-<!--<h4>Car Id :{{modifyCancelBookingData.carId}}</h4>-->
-<!--<h4>Car Category :{{modifyCancelBookingData.CarCategories_categoryId}}</h4>-->
-<h4><b>Booking Status :{{modifyCancelBookingData.status}}</b></h4>
+</div>
+<div class="col">
+<h2><strong><em>Car Booking Details</em></strong></h2>
+<li class="list-group-item">Pickup Date: {{modifyCancelBookingData.bookingdateAndTime}}</li>
+<li class="list-group-item">Drop Date:  {{modifyCancelBookingData.dropdateAndTime}}</li>
+<!--<li class="list-group-item">City :{{modifyCancelBookingData.City_cityId}}</li>-->
+<li class="list-group-item">Hub Id :{{modifyCancelBookingData.Hub_hubId}}</li>
+<!--<li class="list-group-item">Car Id :{{modifyCancelBookingData.carId}}</li>-->
+<!--<li class="list-group-item">Car Category :{{modifyCancelBookingData.CarCategories_categoryId}}</li>-->
+<li class="list-group-item"><b>Current Booking Status :{{modifyCancelBookingData.status != 'Cancelled' ? 'Booked' : modifyCancelBookingData.status}}</b></li>
 <br>
-
+</div>
+</div>
 <div *ngIf="this.isButtonVisible" (click)="this.isButtonVisible = false">
 <button class="btn btn-danger" id="cancelBooking" (click)="cancelBookingId(modifyCancelBookingData.bookingId)" onclick="hidden">Cancel</button> &nbsp;&nbsp;
 <button class="btn btn-warning" id="modifyBooking" (click)="modify()">Modify</button>
 </div>
-
+<br><br>
+</div>
+<br><br>
 </div>

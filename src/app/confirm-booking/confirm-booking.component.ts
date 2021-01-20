@@ -54,7 +54,7 @@ export class ConfirmBookingComponent implements OnInit {
     this.bookingobj.Amount = this.comp4;
     // console.log(this.bookingobj);
     this.bookserv.postBooking(this.bookingobj).subscribe(data=>console.log(data));
-    alert("Booking has be done Successfully");
+    alert("Booking has be done Successfully. Please check your mail for more details.");
     this.router.navigate(["/home"]);
   }
 }

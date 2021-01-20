@@ -23,7 +23,8 @@ export class ModifyCancelBookingComponent implements OnInit {
 
   cancelBookingId(cancelbookId : any){
     alert("Booking will be cancelled");
-    console.log("booking cancelled for Booking id :" + cancelbookId);
+    console.log(this.modifyCancelBookingData);
+    console.log("Your Booking will be cancelled for Booking id :" + cancelbookId);
     this.modifyCancelBookingData.status ="Cancelled";
 
     this._modifyCancelBookingSevice.cancelBooking(this.modifyCancelBookingData).subscribe();
@@ -31,11 +32,11 @@ export class ModifyCancelBookingComponent implements OnInit {
 
   selectedBookingId(BookingId : any){
     const bkid = BookingId.value;
-    alert(BookingId.value);
-    console.log(BookingId.value);
+    // alert(BookingId.value);
+    // console.log(BookingId.value);
     const json = this._modifyCancelBookingSevice.getBookingByCode(bkid).subscribe(data=> this.modifyCancelBookingData=data);
     //const json = this._modifyCancelBookingSevice.getAmmenities().subscribe(data=> this.modifyCancelBookingData=data);
-    console.log(json);
+    // console.log(this.modifyCancelBookingData);
 
   }
 }

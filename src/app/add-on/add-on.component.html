@@ -1,12 +1,21 @@
-<h1><u> Rental Add-ons</u></h1>
+<h1 class="text-warning" ><u> Rental Add-ons</u></h1>
 <br>
 <form  #ammenitiesSelection="ngForm" (ngSubmit)="selectedAmmenities(ammenitiesSelection)">
 
-    <table class="table table-hover table-sm">
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+              <th >Sr No.</th>
+              <th >Select</th>
+              <th >Add Ons</th>
+              <th >Rate in ₹/Day</th>
+              
+            </tr>
+          </thead>
         <tbody  *ngIf='AmmenitiesData'>
             <tr  *ngFor="let item of AmmenitiesData">
-            <th scope="row"></th>
-            <td>{{item.ammenitiesId}}</td>
+            <th scope="row">{{item.ammenitiesId}}</th>
+            <!-- <td></td> -->
             <td><input class="form-check-input" type="checkbox" name="{{item.ammenitiesRate}}"  value="{{item.ammenitiesRate}}"  ngModel ></td>
             <td>{{item.ammenitiesName}}</td>
             <td>{{item.ammenitiesRate | currency:"INR"}} / Day</td>
@@ -33,3 +42,4 @@
 
 </form>
 
+<br><br>
