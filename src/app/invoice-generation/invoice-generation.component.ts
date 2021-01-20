@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,16 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class InvoiceGenerationComponent implements OnInit {
 
   invoiceData :any;
-  vehicleNumber: number;
-  customerobj : any;
-  selectcars :any;
-  constructor() { }
-
+  Carobj: number;
+  bookingobj : any;
+  date:any;
+  
+  constructor(private datepipe:DatePipe) {
+    this.date=new Date();
+    this.date=this.datepipe.transform(this.date,'dd/MM/YYYY');
+    console.log(this.date);
+   }
+   //{state: {data: this.billingobj, data1 : this.vehicleNumber , data2:this.customerobj}} )
   ngOnInit(): void {
     this.invoiceData=history.state.data;
-    this.vehicleNumber = history.state.data1;
-    this.customerobj = history.state.data2;
-    this.selectcars = history.state.data3;
+    this.Carobj = history.state.data1;
+    this.bookingobj = history.state.data2;
   }
 
   print(): void {

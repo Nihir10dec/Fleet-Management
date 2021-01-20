@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HandoverServService } from '../handover-serv.service';
 import { Billing } from '../billing';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-handover',
@@ -24,9 +25,12 @@ export class HandoverComponent implements OnInit {
   carsarray:any[];
   fuelstatuss: Array<string> = ['1/4', '1/2', '3/4', 'full']
   vehicleNumber: number;
+  date:any;
+
   constructor(private fb: FormBuilder, private _customerserv : CustomerService,
     private _billingserv :BillingServService ,private serv:HandoverServService,
-    private router : Router
+    private router : Router,
+    private datepipe:DatePipe
     ) {
     this.form1 = fb.group({
       BookingId: ['', Validators.required],
@@ -36,6 +40,8 @@ export class HandoverComponent implements OnInit {
       fuelstatus: ['', Validators.required]
     });
     this.carsarray=[];
+    this.date=this.datepipe.transform(this.date,'dd/MM/YYYY');
+    console.log(this.date);
   }
 
   get BookingId() {
@@ -68,7 +74,7 @@ export class HandoverComponent implements OnInit {
     this.billingobj.Customer_customerId = this.booking.Customer_customerId;
     this.billingobj.billingName = this.customerobj.first_name + " " + this.customerobj.last_name;
     this.billingobj.fuelStatus = this.form1.get('fuelstatus').value;
-    this.billingobj.startDate = new Date().toString();
+    this.billingobj.startDate = this.date;
     this.billingobj.endDate = "";
     this.billingobj.userMailid = this.customerobj.emailId;
     this.billingobj.customerMobNo = this.customerobj.cellNo;
@@ -77,7 +83,7 @@ export class HandoverComponent implements OnInit {
     console.log("billing " , this.billingobj)
     this._billingserv.postBilling(this.billingobj).subscribe(data => console.log(data));
     alert("Car Handed Over");
-    this.router.navigate(['/invoice'] , {state: {data: this.billingobj, data1 : this.vehicleNumber , data2:this.customerobj}} );
+    this.router.navigate(['/home']);
   }
   async Loadselectcar(f:any)
   {
