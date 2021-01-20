@@ -11,8 +11,8 @@
         <img src="../../assets/images/rentacar.png" style="width:100%; max-width:300px;">
         </td>
         <td>
-        Invoice #: <br>
-        Created: {{invoiceData.startDate}}<br>
+        Invoice #:{{bookingobj.bookingId}} <br>
+        Created: {{date}}<br>
         </td>
         </tr>
         </table>
@@ -32,8 +32,8 @@
         Name : {{invoiceData.billingName}}<br>
         MobileNo : {{invoiceData.customerMobNo}}<br>
           usermailId : {{invoiceData.userMailid}}<br>
-        Driving Licence no: {{customerobj.drivingLiscen_Number}}<br>
-          Valid Through: {{customerobj.validThrough}}<br>
+        Driving Licence no: {{bookingobj.drivingLiscen_Number}}<br>
+          Valid Through: {{bookingobj.validThrough}}<br>
         </td>
         </tr>
         </table>
@@ -46,7 +46,7 @@
         </tr>
         <tr class="item"><td>Booking id</td><td>{{invoiceData.Booking_bookingId}}</td></tr>
         <tr class="item"><td>Fuel Status</td><td>{{invoiceData.fuelStatus}}</td></tr>
-        <tr class="item"><td>Vehicle Number</td><td>{{vehicleNumber}}</td></tr>
+        <!--<tr class="item"><td>Vehicle Number</td><td>{{Carobj.carNoPlate}}</td></tr>-->
         <tr class="item"><td>Vehicle Category</td><td>{{invoiceData.CarCategories_categoryId}}</td></tr>
         <tr class="item"><td>Pickup Location</td><td>{{invoiceData.Hub_hubid}}</td></tr>
         <tr class="item"><td>Amenities</td><td> <!--Column to be added in booking regarding amenities selected--></td></tr>
