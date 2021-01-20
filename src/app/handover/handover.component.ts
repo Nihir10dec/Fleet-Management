@@ -77,7 +77,7 @@ export class HandoverComponent implements OnInit {
     console.log("billing " , this.billingobj)
     this._billingserv.postBilling(this.billingobj).subscribe(data => console.log(data));
     alert("Car Handed Over");
-    this.router.navigate(["/home"]);
+    this.router.navigate(['/invoice'] , {state: {data: this.billingobj, data1 : this.vehicleNumber , data2:this.customerobj}} );
   }
   async Loadselectcar(f:any)
   {

@@ -1,0 +1,62 @@
+<mat-card class="shadow border border-primary rounded">
+  <mat-card-content >     
+    <div id="print-section">    
+      <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+        <td colspan="2">
+        <table>
+        <tr>
+        <td class="title">
+        <img src="../../assets/images/rentacar.png" style="width:100%; max-width:300px;">
+        </td>
+        <td>
+        Invoice #: <br>
+        Created: {{invoiceData.startDate}}<br>
+        </td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+        
+        <tr class="information">
+        <td colspan="2">
+        <table>
+        <tr>
+        <td>
+        Rent-A-Car, Inc.<br>
+        12345 Sunny Road<br>
+        Sunnyville, TX 12345
+        </td>
+        <td>
+        Name : {{invoiceData.billingName}}<br>
+        MobileNo : {{invoiceData.customerMobNo}}<br>
+          usermailId : {{invoiceData.userMailid}}<br>
+        Driving Licence no: {{customerobj.drivingLiscen_Number}}<br>
+          Valid Through: {{customerobj.validThrough}}<br>
+        </td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+        
+        
+        <tr class="heading">
+        <td>Car Booking Details</td><td></td>
+        </tr>
+        <tr class="item"><td>Booking id</td><td>{{invoiceData.Booking_bookingId}}</td></tr>
+        <tr class="item"><td>Fuel Status</td><td>{{invoiceData.fuelStatus}}</td></tr>
+        <tr class="item"><td>Vehicle Number</td><td>{{vehicleNumber}}</td></tr>
+        <tr class="item"><td>Vehicle Category</td><td>{{invoiceData.CarCategories_categoryId}}</td></tr>
+        <tr class="item"><td>Pickup Location</td><td>{{invoiceData.Hub_hubid}}</td></tr>
+        <tr class="item"><td>Amenities</td><td> <!--Column to be added in booking regarding amenities selected--></td></tr>
+
+        <tr class="total"> <td></td><td>TotalAmount: {{invoiceData.Amount}}</td></tr>
+        </table>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-success" (click)="print()">print</button> 
+
+  </mat-card-content>
+</mat-card>

@@ -35,9 +35,13 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MatCardModule,} from '@angular/material/card';
 import { HandoverComponent } from './handover/handover.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+// import {MatSelectModule} from '@angular/material/select';
 import { ReturnComponent } from './return/return.component';
 import { DatePipe } from '@angular/common';
 import { CareerComponent } from './career/career.component';
+import { InvoiceGenerationComponent } from './invoice-generation/invoice-generation.component';
 
 @NgModule({
   declarations: [
@@ -59,8 +63,11 @@ import { CareerComponent } from './career/career.component';
     StaffloginComponent,
     PagenotfoundComponent,
     HandoverComponent,
+    AboutUsComponent,
+    ContactUsComponent,
     ReturnComponent,
     CareerComponent,
+    InvoiceGenerationComponent,
   ],
 
   imports: [

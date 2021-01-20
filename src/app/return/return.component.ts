@@ -40,7 +40,7 @@ export class ReturnComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  onSubmit(frm: FormGroup) {
+  async onSubmit(frm: FormGroup) {
     console.log(frm.value);
     this.carsobj.availability="1";
     let car=this.serv.putCarAvailability(this.carsobj.carId,this.carsobj);
@@ -48,7 +48,7 @@ export class ReturnComponent implements OnInit {
     this.serv.putBookingStatus(this.booking.bookingId,this.booking);
     let date=new Date();
     this.billingObj.endDate=this.datepipe.transform(date,'dd/MM/YYYY');
-    this.serv.putBillingDate(this.billingObj.billingId,this.billingObj);
+    this.billingObj= await this.serv.putBillingDate(this.billingObj.billingId,this.billingObj);
     console.log(car);
     this.router.navigate(['/'] , {state: {data: this.billingObj,data1: this.carsobj}} );
   }
