@@ -1,3 +1,4 @@
+import { ModifyCancelBookingComponent } from './modify-cancel-booking/modify-cancel-booking.component';
 import { CustomerCareComponent } from './customer-care/customer-care.component';
 import { AffiliatedHotelsComponent } from './affiliated-hotels/affiliated-hotels.component';
 import { AddOnComponent } from './add-on/add-on.component';
@@ -33,13 +34,14 @@ const routes: Routes =
   {path:'handover',component:HandoverComponent},
   {path:'invoice', component:InvoiceGenerationComponent},
   {path:'return',component:ReturnComponent},
-  {path:"career",component:CareerComponent},
+  {path:'modifycancel',component:ModifyCancelBookingComponent},
+  {path:'handover',component:HandoverComponent,canActivate : [AppGuard]},
   {path:"affiliatedhotel",component:AffiliatedHotelsComponent},
   {path:"customercare",component:CustomerCareComponent},
-  {path:'handover',component:HandoverComponent,canActivate : [AppGuard]},
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path:"career",component:CareerComponent},
   {path : 'aboutus', component:AboutUsComponent},
   {path: 'contactus', component:ContactUsComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent },
   
 ];
