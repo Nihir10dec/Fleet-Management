@@ -29,7 +29,7 @@ const routes: Routes =
   {path:'addOn',component:AddOnComponent,canActivate : [AppGuard]},
   {path:'memberRegistrationForm',component:MembershipRegistrationComponent,canActivate : [AppGuard]},
   {path:'ConfirmBookingComponent',component:ConfirmBookingComponent,canActivate : [AppGuard]},
-  { path: 'home', component: HomepageComponent },
+  {path: 'home', component: HomepageComponent },
   {path :"stafflogin" , component: StaffloginComponent},
   {path:'handover',component:HandoverComponent},
   {path:'invoice', component:InvoiceGenerationComponent},
@@ -41,8 +41,8 @@ const routes: Routes =
   {path:"career",component:CareerComponent},
   {path : 'aboutus', component:AboutUsComponent},
   {path: 'contactus', component:ContactUsComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PagenotfoundComponent },
+  {path: '**', component: PagenotfoundComponent },
+  {path: '', redirectTo: '/home', pathMatch: 'full' },
   
 ];
 

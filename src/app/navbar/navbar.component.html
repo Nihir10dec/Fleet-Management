@@ -43,7 +43,7 @@
           Hi {{user.empName}}<span class="caret"></span></a>
           <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
               <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/handover']" routerLinkActive="router-link-active"  >Handover</a>
-              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Return</a>
+              <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/return']" routerLinkActive="router-link-active"  href="#">Return</a>
               <a class="dropdown-item waves-light" mdbWavesEffect href="#">Booking</a>
               <a class="dropdown-item waves-light" mdbWavesEffect href="#">Cancellation</a>
               <div class="divider dropdown-divider"></div>
