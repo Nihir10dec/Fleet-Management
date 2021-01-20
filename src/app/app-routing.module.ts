@@ -41,8 +41,8 @@ const routes: Routes =
   {path:"career",component:CareerComponent},
   {path : 'aboutus', component:AboutUsComponent},
   {path: 'contactus', component:ContactUsComponent},
-  {path: '**', component: PagenotfoundComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path: '**', component: PagenotfoundComponent },
   
 ];
 

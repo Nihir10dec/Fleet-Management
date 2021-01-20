@@ -1,3 +1,4 @@
+import { LocationSelectionServiceService } from './../location-selection/location-selection-service.service';
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,8 +13,10 @@ export class InvoiceGenerationComponent implements OnInit {
   Carobj: number;
   bookingobj : any;
   date:any;
+  hub:any;
+  amount :number;
   
-  constructor(private datepipe:DatePipe) {
+  constructor(private datepipe:DatePipe , private _hubservice : LocationSelectionServiceService) {
     this.date=new Date();
     this.date=this.datepipe.transform(this.date,'dd/MM/YYYY');
     console.log(this.date);
@@ -23,6 +26,9 @@ export class InvoiceGenerationComponent implements OnInit {
     this.invoiceData=history.state.data;
     this.Carobj = history.state.data1;
     this.bookingobj = history.state.data2;
+    this.amount = history.state.finalamout;
+    console.log(this.invoiceData , this.bookingobj);
+    this._hubservice.getLocationByCode(this.invoiceData.Hub_hubId).subscribe(data => this.hub = data);
   }
 
   print(): void {

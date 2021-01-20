@@ -20,12 +20,12 @@ export class HandoverComponent implements OnInit {
   booking;
   customerobj;
   carId;
-  billingobj : Billing = new Billing(0,0,0, 0,0,'','','','','','',0,'','' , 0);
+  billingobj : Billing = new Billing(0,0,0, 0,0,'','',new Date() , new Date(),'','',0,'','' , 0);
   carCategoryId : number;
   carsarray:any[];
   fuelstatuss: Array<string> = ['1/4', '1/2', '3/4', 'full']
   vehicleNumber: number;
-  date:any;
+  date :string;
 
   constructor(private fb: FormBuilder, private _customerserv : CustomerService,
     private _billingserv :BillingServService ,private serv:HandoverServService,
@@ -40,7 +40,7 @@ export class HandoverComponent implements OnInit {
       fuelstatus: ['', Validators.required]
     });
     this.carsarray=[];
-    this.date=this.datepipe.transform(this.date,'dd/MM/YYYY');
+    this.date=this.datepipe.transform(new Date(),'dd/MM/YYYY');
     console.log(this.date);
   }
 
@@ -64,6 +64,7 @@ export class HandoverComponent implements OnInit {
   }
   async onSubmit(frm: FormGroup) {
     this.booking.status = "Active";
+    this.booking.bookingdateAndTime = new Date();
     await this.serv.updateBooking(this.bookingId , this.booking);
     this.customerobj = await this._customerserv.getCustomerByCode(this.booking.Customer_customerId);
     console.log("booking" ,this.booking);
@@ -74,8 +75,8 @@ export class HandoverComponent implements OnInit {
     this.billingobj.Customer_customerId = this.booking.Customer_customerId;
     this.billingobj.billingName = this.customerobj.first_name + " " + this.customerobj.last_name;
     this.billingobj.fuelStatus = this.form1.get('fuelstatus').value;
-    this.billingobj.startDate = this.date;
-    this.billingobj.endDate = "";
+    this.billingobj.startDate = new Date();
+    this.billingobj.endDate = this.booking.dropdateAndTime;
     this.billingobj.userMailid = this.customerobj.emailId;
     this.billingobj.customerMobNo = this.customerobj.cellNo;
     this.billingobj.Hub_hubid = this.booking.Hub_hubId;

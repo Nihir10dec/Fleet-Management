@@ -15,6 +15,11 @@ export class CarServService {
   {
     return this._http.get<CarCategories[]>(this.webapiurl);
   }
+
+  getCarCategoryById(id : number):Promise<CarCategories>
+  {
+    return this._http.get<CarCategories>(this.webapiurl + "/" + id).toPromise();
+  }
   
   public __subject=new BehaviorSubject<any>('');
   emit<T>(data:T)

@@ -38,6 +38,8 @@ export class ReturnServService {
 
   putBillingDate(id:number,billingobj:any):Promise<any>
   {
+    console.log("inside service")
+    console.log(billingobj);
     return this._http.put<any>(this.webapiurl+"billing/"+id,billingobj).toPromise();
   }
 }
