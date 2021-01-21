@@ -23,11 +23,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link btn btn-primary " mdbWavesEffect><i class="fa fa-car" aria-hidden="true"></i>
+          <a class="nav-link btn btn-primary" [routerLink]="['/aboutus']" routerLinkActive="router-link-active"  mdbWavesEffect><i class="fa fa-car" aria-hidden="true"></i>
             About India Drive</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-primary" mdbWavesEffect> <i class="bi bi-telephone-inbound-fill"></i> Customer
+          <a class="nav-link btn btn-primary" [routerLink]="['/customercare']" routerLinkActive="router-link-active"  mdbWavesEffect> <i class="bi bi-telephone-inbound-fill"></i> Customer
             Care</a>
         </li>
       </ul>
@@ -44,8 +44,8 @@
           <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
               <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/handover']" routerLinkActive="router-link-active"  >Handover</a>
               <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/return']" routerLinkActive="router-link-active"  href="#">Return</a>
-              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Booking</a>
-              <a class="dropdown-item waves-light" mdbWavesEffect href="#">Cancellation</a>
+              <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/carcategory']" routerLinkActive="router-link-active"  >Booking</a>
+              <!-- <a class="dropdown-item waves-light" mdbWavesEffect href="#">Cancellation</a> -->
               <div class="divider dropdown-divider"></div>
               <a class="dropdown-item waves-light btn" mdbWavesEffect (click)="logout()">Logout</a>
           </div>

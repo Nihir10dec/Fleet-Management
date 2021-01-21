@@ -39,9 +39,14 @@ export class InvoiceGenerationComponent implements OnInit {
     popupWin.document.write(`
       <html>
         <head>
-          <title>Print tab</title>
+          <title>Payment receipt</title>
           <style>
-          //........Customized style.......
+          @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&display=swap');
+body{
+    font-family: 'Poppins', sans-serif !important;
+    font-weight:200 !important;
+}
           </style>
         </head>
     <body onload="window.print();window.close()">${printContents}</body>
@@ -49,21 +54,5 @@ export class InvoiceGenerationComponent implements OnInit {
     );
     popupWin.document.close();
 }
-  /*
-  seleectCarCategoryId( carCatId : any)
-  {
-    this._invoiceServiceService.getCarCategorybyCode(carCatId).subscribe(data=> this.carCategoryData =data);
-  }
-
-  selectedBillingId(BookingId : any){
-    const bkid = BookingId.value;
-    
-    this._invoiceServiceService.getBillingIdByCode(bkid).subscribe(data=> this.invoiceData=data);
-    var carCatId = this.invoiceData.CarCategories_categoryId;
-    console.log(carCatId);
-    {
-      this._invoiceServiceService.getCarCategorybyCode(carCatId).subscribe(data=> this.carCategoryData =data);
-    }
-  }
-  */
 }
+  
